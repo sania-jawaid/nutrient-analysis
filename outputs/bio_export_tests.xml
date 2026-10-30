@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="20" time="6.270" timestamp="2026-10-31T01:01:12.592310+05:30" hostname="EPINPUNW0C24"><testcase classname="tests.test_export_final_dashboard" name="test_json_script_escaping_roundtrips[&lt;/script&gt;&lt;script&gt;alert('OCR')&lt;/script&gt;]" time="0.002" /><testcase classname="tests.test_export_final_dashboard" name="test_json_script_escaping_roundtrips[&lt;img src=&quot;https://example.invalid/image&quot; onerror=&quot;alert(1)&quot;&gt;]" time="0.001" /><testcase classname="tests.test_export_final_dashboard" name="test_json_script_escaping_roundtrips[A&amp;B &gt; C &lt; D \u2028 \u2029 caf\xe9 \u6804\u990a]" time="0.002" /><testcase classname="tests.test_export_final_dashboard" name="test_json_script_escaping_roundtrips[` ${template} \\ slash / quote &quot;]" time="0.002" /><testcase classname="tests.test_export_final_dashboard" name="test_json_rejects_nonfinite" time="0.001" /><testcase classname="tests.test_export_final_dashboard" name="test_recorder_columns_context_and_table_escaping" time="0.020" /><testcase classname="tests.test_export_final_dashboard" name="test_download_deduplication_is_lossless" time="0.004" /><testcase classname="tests.test_export_final_dashboard" name="test_capture_restores_state_on_error" time="0.077" /><testcase classname="tests.test_export_final_dashboard" name="test_exact_navigation_dataset_counts_and_source_fingerprint" time="1.174"><failure message="AssertionError: assert 73059124 &lt; (50 * (1024 ** 2))&#10; +  where 73059124 = os.stat_result(st_mode=33206, st_ino=64739244643496682, st_dev=12297653877213942827, st_nlink=1, st_uid=0, st_gid=0, st_size=73059124, st_atime=1793388674, st_mtime=1793388642, st_ctime=1793385019).st_size&#10; +    where os.stat_result(st_mode=33206, st_ino=64739244643496682, st_dev=12297653877213942827, st_nlink=1, st_uid=0, st_gid=0, st_size=73059124, st_atime=1793388674, st_mtime=1793388642, st_ctime=1793385019) = stat()&#10; +      where stat = WindowsPath('C:/Users/SaniaJawaid/Documents/projects/practice/study/nutrition_analysis/main_output/index.html').stat">artifact = ('&lt;!doctype html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n&lt;meta charset="utf-8"&gt;&lt;meta name="viewport" content="width=device-width,i... ...}, WindowsPath('C:/Users/SaniaJawaid/Documents/projects/practice/study/nutrition_analysis/main_output/index.html'))
+
+    def test_exact_navigation_dataset_counts_and_source_fingerprint(artifact):
+        _, data, path = artifact
+        assert data["sections"] == SECTIONS
+        assert data["datasets"] == ["50K Dataset", "Part1 + Part2 Overlapped Dataset"]
+        assert data["views"]["0"]["row_count"] == 50_000
+        assert data["views"]["1"]["row_count"] == 3075
+        assert sum(data["inventory_splits"].values()) == 3083
+        # Frozen snapshots retain their historical source filename across a rename.
+        assert len(data["source_sha256"]) == 1
+        assert next(iter(data["source_sha256"].values())) == exporter.file_sha256(ROOT / "app_final.py")
+&gt;       assert path.stat().st_size &lt; 50 * 1024**2
+E       AssertionError: assert 73059124 &lt; (50 * (1024 ** 2))
+E        +  where 73059124 = os.stat_result(st_mode=33206, st_ino=64739244643496682, st_dev=12297653877213942827, st_nlink=1, st_uid=0, st_gid=0, st_size=73059124, st_atime=1793388674, st_mtime=1793388642, st_ctime=1793385019).st_size
+E        +    where os.stat_result(st_mode=33206, st_ino=64739244643496682, st_dev=12297653877213942827, st_nlink=1, st_uid=0, st_gid=0, st_size=73059124, st_atime=1793388674, st_mtime=1793388642, st_ctime=1793385019) = stat()
+E        +      where stat = WindowsPath('C:/Users/SaniaJawaid/Documents/projects/practice/study/nutrition_analysis/main_output/index.html').stat
+
+tests\test_export_final_dashboard.py:105: AssertionError</failure></testcase><testcase classname="tests.test_export_final_dashboard" name="test_every_nutrient_has_exact_three_graph_types_and_black_palette" time="0.002" /><testcase classname="tests.test_export_final_dashboard" name="test_distributions_preserve_all_finite_values_zeros_and_extremes" time="0.004"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_analysis\\data\\openfoodfacts_eda_enriched.csv'">artifact = ('&lt;!doctype html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n&lt;meta charset="utf-8"&gt;&lt;meta name="viewport" content="width=device-width,i... ...}, WindowsPath('C:/Users/SaniaJawaid/Documents/projects/practice/study/nutrition_analysis/main_output/index.html'))
+
+    def test_distributions_preserve_all_finite_values_zeros_and_extremes(artifact):
+        _, data, _ = artifact
+&gt;       sample = pd.read_csv(ROOT / "data/openfoodfacts_eda_enriched.csv", low_memory=False)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_export_final_dashboard.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\.venv-10\Lib\site-packages\pandas\io\parsers\readers.py:1026: in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv-10\Lib\site-packages\pandas\io\parsers\readers.py:620: in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv-10\Lib\site-packages\pandas\io\parsers\readers.py:1620: in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv-10\Lib\site-packages\pandas\io\parsers\readers.py:1880: in _make_engine
+    self.handles = get_handle(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path_or_buf = WindowsPath('C:/Users/SaniaJawaid/Documents/projects/practice/study/nutrition_analysis/data/openfoodfacts_eda_enriched.csv')
+mode = 'r'
+
+    @doc(compression_options=_shared_docs["compression_options"] % "path_or_buf")
+    def get_handle(
+        path_or_buf: FilePath | BaseBuffer,
+        mode: str,
+        *,
+        encoding: str | None = None,
+        compression: CompressionOptions | None = None,
+        memory_map: bool = False,
+        is_text: bool = True,
+        errors: str | None = None,
+        storage_options: StorageOptions | None = None,
+    ) -&gt; IOHandles[str] | IOHandles[bytes]:
+        """
+        Get file handle for given path/buffer and mode.
+    
+        Parameters
+        ----------
+        path_or_buf : str or file handle
+            File path or object.
+        mode : str
+            Mode to open path_or_buf with.
+        encoding : str or None
+            Encoding to use.
+        {compression_options}
+    
+               May be a dict with key 'method' as compression mode
+               and other keys as compression options if compression
+               mode is 'zip'.
+    
+               Passing compression options as keys in dict is
+               supported for compression modes 'gzip', 'bz2', 'zstd' and 'zip'.
+    
+            .. versionchanged:: 1.4.0 Zstandard support.
+    
+        memory_map : bool, default False
+            See parsers._parser_params for more information. Only used by read_csv.
+        is_text : bool, default True
+            Whether the type of the content passed to the file/buffer is string or
+            bytes. This is not the same as `"b" not in mode`. If a string content is
+            passed to a binary file/buffer, a wrapper is inserted.
+        errors : str, default 'strict'
+            Specifies how encoding and decoding errors are to be handled.
+            See the errors argument for :func:`open` for a full list
+            of options.
+        storage_options: StorageOptions = None
+            Passed to _get_filepath_or_buffer
+    
+        Returns the dataclass IOHandles
+        """
+        # Windows does not default to utf-8. Set to utf-8 for a consistent behavior
+        encoding = encoding or "utf-8"
+    
+        errors = errors or "strict"
+    
+        # read_csv does not know whether the buffer is opened in binary/text mode
+        if _is_binary_mode(path_or_buf, mode) and "b" not in mode:
+            mode += "b"
+    
+        # validate encoding and errors
+        codecs.lookup(encoding)
+        if isinstance(errors, str):
+            codecs.lookup_error(errors)
+    
+        # open URLs
+        ioargs = _get_filepath_or_buffer(
+            path_or_buf,
+            encoding=encoding,
+            compression=compression,
+            mode=mode,
+            storage_options=storage_options,
+        )
+    
+        handle = ioargs.filepath_or_buffer
+        handles: list[BaseBuffer]
+    
+        # memory mapping needs to be the first step
+        # only used for read_csv
+        handle, memory_map, handles = _maybe_memory_map(handle, memory_map)
+    
+        is_path = isinstance(handle, str)
+        compression_args = dict(ioargs.compression)
+        compression = compression_args.pop("method")
+    
+        # Only for write methods
+        if "r" not in mode and is_path:
+            check_parent_directory(str(handle))
+    
+        if compression:
+            if compression != "zstd":
+                # compression libraries do not like an explicit text-mode
+                ioargs.mode = ioargs.mode.replace("t", "")
+            elif compression == "zstd" and "b" not in ioargs.mode:
+                # python-zstandard defaults to text mode, but we always expect
+                # compression libraries to use binary mode.
+                ioargs.mode += "b"
+    
+            # GZ Compression
+            if compression == "gzip":
+                if isinstance(handle, str):
+                    # error: Incompatible types in assignment (expression has type
+                    # "GzipFile", variable has type "Union[str, BaseBuffer]")
+                    handle = gzip.GzipFile(  # type: ignore[assignment]
+                        filename=handle,
+                        mode=ioargs.mode,
+                        **compression_args,
+                    )
+                else:
+                    handle = gzip.GzipFile(
+                        # No overload variant of "GzipFile" matches argument types
+                        # "Union[str, BaseBuffer]", "str", "Dict[str, Any]"
+                        fileobj=handle,  # type: ignore[call-overload]
+                        mode=ioargs.mode,
+                        **compression_args,
+                    )
+    
+            # BZ Compression
+            elif compression == "bz2":
+                # Overload of "BZ2File" to handle pickle protocol 5
+                # "Union[str, BaseBuffer]", "str", "Dict[str, Any]"
+                handle = get_bz2_file()(  # type: ignore[call-overload]
+                    handle,
+                    mode=ioargs.mode,
+                    **compression_args,
+                )
+    
+            # ZIP Compression
+            elif compression == "zip":
+                # error: Argument 1 to "_BytesZipFile" has incompatible type
+                # "Union[str, BaseBuffer]"; expected "Union[Union[str, PathLike[str]],
+                # ReadBuffer[bytes], WriteBuffer[bytes]]"
+                handle = _BytesZipFile(
+                    handle, ioargs.mode, **compression_args  # type: ignore[arg-type]
+                )
+                if handle.buffer.mode == "r":
+                    handles.append(handle)
+                    zip_names = handle.buffer.namelist()
+                    if len(zip_names) == 1:
+                        handle = handle.buffer.open(zip_names.pop())
+                    elif not zip_names:
+                        raise ValueError(f"Zero files found in ZIP file {path_or_buf}")
+                    else:
+                        raise ValueError(
+                            "Multiple files found in ZIP file. "
+                            f"Only one file per ZIP: {zip_names}"
+                        )
+    
+            # TAR Encoding
+            elif compression == "tar":
+                compression_args.setdefault("mode", ioargs.mode)
+                if isinstance(handle, str):
+                    handle = _BytesTarFile(name=handle, **compression_args)
+                else:
+                    # error: Argument "fileobj" to "_BytesTarFile" has incompatible
+                    # type "BaseBuffer"; expected "Union[ReadBuffer[bytes],
+                    # WriteBuffer[bytes], None]"
+                    handle = _BytesTarFile(
+                        fileobj=handle, **compression_args  # type: ignore[arg-type]
+                    )
+                assert isinstance(handle, _BytesTarFile)
+                if "r" in handle.buffer.mode:
+                    handles.append(handle)
+                    files = handle.buffer.getnames()
+                    if len(files) == 1:
+                        file = handle.buffer.extractfile(files[0])
+                        assert file is not None
+                        handle = file
+                    elif not files:
+                        raise ValueError(f"Zero files found in TAR archive {path_or_buf}")
+                    else:
+                        raise ValueError(
+                            "Multiple files found in TAR archive. "
+                            f"Only one file per TAR archive: {files}"
+                        )
+    
+            # XZ Compression
+            elif compression == "xz":
+                # error: Argument 1 to "LZMAFile" has incompatible type "Union[str,
+                # BaseBuffer]"; expected "Optional[Union[Union[str, bytes, PathLike[str],
+                # PathLike[bytes]], IO[bytes]], None]"
+                handle = get_lzma_file()(
+                    handle, ioargs.mode, **compression_args  # type: ignore[arg-type]
+                )
+    
+            # Zstd Compression
+            elif compression == "zstd":
+                zstd = import_optional_dependency("zstandard")
+                if "r" in ioargs.mode:
+                    open_args = {"dctx": zstd.ZstdDecompressor(**compression_args)}
+                else:
+                    open_args = {"cctx": zstd.ZstdCompressor(**compression_args)}
+                handle = zstd.open(
+                    handle,
+                    mode=ioargs.mode,
+                    **open_args,
+                )
+    
+            # Unrecognized Compression
+            else:
+                msg = f"Unrecognized compression type: {compression}"
+                raise ValueError(msg)
+    
+            assert not isinstance(handle, str)
+            handles.append(handle)
+    
+        elif isinstance(handle, str):
+            # Check whether the filename is to be opened in binary mode.
+            # Binary mode does not support 'encoding' and 'newline'.
+            if ioargs.encoding and "b" not in ioargs.mode:
+                # Encoding
+&gt;               handle = open(
+                    handle,
+                    ioargs.mode,
+                    encoding=ioargs.encoding,
+                    errors=errors,
+                    newline="",
+                )
+E               FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_analysis\\data\\openfoodfacts_eda_enriched.csv'
+
+..\.venv-10\Lib\site-packages\pandas\io\common.py:873: FileNotFoundError</failure></testcase><testcase classname="tests.test_export_final_dashboard" name="test_overview_missingness_numeric_flags_and_full_large_correlation" time="0.002" /><testcase classname="tests.test_export_final_dashboard" name="test_original_annotations_and_prediction_reference_tables_are_retained" time="0.003" /><testcase classname="tests.test_export_final_dashboard" name="test_snapshot_progress_and_split_micro_metrics_are_consistent" time="0.003" /><testcase classname="tests.test_export_final_dashboard" name="test_comparison_copy_and_scores_match_live_rendering_in_both_sources" time="1.037"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_analysis\\data\\part2_cache\\layoutlm_bio\\latest_test_bundle.json'">artifact = ('&lt;!doctype html&gt;\n&lt;html lang="en"&gt;\n&lt;head&gt;\n&lt;meta charset="utf-8"&gt;&lt;meta name="viewport" content="width=device-width,i... ...}, WindowsPath('C:/Users/SaniaJawaid/Documents/projects/practice/study/nutrition_analysis/main_output/index.html'))
+
+    def test_comparison_copy_and_scores_match_live_rendering_in_both_sources(artifact):
+        """Check actual regenerated events, including table/graph/tooltip text, not raw cache keys."""
+        _, data, _ = artifact
+        app = exporter.load_dashboard(ROOT)
+        recorder = exporter.Recorder(ROOT)
+        app.st = recorder
+        expected = recorder.capture(app.render_approaches)
+        expected_tables = [event for event in expected if event["kind"] == "table"]
+        assert [event["rows"] for event in expected_tables] == [2, 1]
+        for percent in ("46.8%", "79.6%", "58.9%", "97.7%", "99.5%", "98.6%"):
+            assert percent in expected_tables[0]["html"]
+        for percent in ("92.6%", "95.3%", "93.9%"):
+            assert percent in expected_tables[1]["html"]
+        for key in data["summaries"]:
+            for events in [data["results"][key], data["bio"][key]["intro"]]:
+                # Identical comparison events must survive the exporter, not a separately maintained explanation.
+                assert any(events[start:start + len(expected)] == expected for start in range(len(events)))
+                text = json.dumps([e for e in events if e["kind"] != "json"], ensure_ascii=False)
+                for phrase in ("How the Methods Were Compared", "Basic Nutrient Detection",
+                               "Detailed Nutrient Identification", "30 g", "serving-size group becomes BASIS",
+                               "not automatically a reference BASIS", "12 g", "Fat per100g",
+                               "not a separately tagged reference phrase", "20 selected official-test images",
+                               "correct span does not prove a correct number"):
+                    assert phrase in text
+                assert not re.search(r"\b(coarse|fine(?:[- ]grained)?|granularity|like-for-like)\b|canvascanvas", text, re.I)
+            assert "Understanding the Results" in json.dumps(data["results"][key])
+            details = next(e for e in expected if e.get("label") == "Details · long images and new-image reading")
+            assert details["expanded"] is False
+&gt;       bundle = json.loads((ROOT / "data/part2_cache/layoutlm_bio/latest_test_bundle.json").read_text())
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_export_final_dashboard.py:244: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\..\..\AppData\Local\Programs\Python\Python312\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/SaniaJawaid/Documents/projects/practice/study/nutrition_analysis/data/part2_cache/layoutlm_bio/latest_test_bundle.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_analysis\\data\\part2_cache\\layoutlm_bio\\latest_test_bundle.json'
+
+..\..\..\..\..\AppData\Local\Programs\Python\Python312\Lib\pathlib.py:1013: FileNotFoundError</failure></testcase><testcase classname="tests.test_export_final_dashboard" name="test_images_are_inline_and_hashes_match_thumbnails" time="0.142" /><testcase classname="tests.test_export_final_dashboard" name="test_embedded_product_downloads_contain_all_unfiltered_rows" time="1.122" /><testcase classname="tests.test_export_final_dashboard" name="test_html_javascript_parses_without_server" time="0.822" /><testcase classname="tests.test_export_final_dashboard" name="test_controller_supports_required_offline_interactions" time="0.020" /><testcase classname="tests.test_export_final_dashboard" name="test_exporter_import_never_loads_models_or_original_app" time="0.035" /></testsuite></testsuites>

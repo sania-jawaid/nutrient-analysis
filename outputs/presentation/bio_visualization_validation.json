@@ -1,0 +1,30 @@
+{
+  "protected_files": 892,
+  "protected_sha256_unchanged": true,
+  "original_app_sha256": "4e37a71ca3fc882baa0be4fea460545f528930ca35d28a9d09f9c92180944bf0",
+  "protected_manifest_sha256": "35402e14e8f9c570ccb0fb5771fd19dc22d7425e1a8f71fcdc6d8206ffa4a18b",
+  "frozen_keys_unchanged": [
+    "exported_at",
+    "sections",
+    "datasets",
+    "sources",
+    "views",
+    "values",
+    "distributions",
+    "originals",
+    "results",
+    "summaries",
+    "result_rows",
+    "inventory_splits",
+    "snapshot_notes",
+    "provenance",
+    "chart_spec_count",
+    "source_rendering"
+  ],
+  "custom_html_shell_unchanged": true,
+  "chart_specs": 325,
+  "html_bytes": 35488500,
+  "default_seeded_sample": "test:6",
+  "default_seeded_counts": "<p>Exact token labels: 97 match / 13 mismatch / 110 total (including O). Non-O boxes: gold 18, prediction 20; 20 tokens marked by either side. These are sample counts, not a replacement for span precision, recall or F1.</p>",
+  "embedded_overlay_panels": 52
+}

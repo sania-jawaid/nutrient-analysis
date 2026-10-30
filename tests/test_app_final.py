@@ -11,7 +11,7 @@ import pytest
 from streamlit.testing.v1 import AppTest
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location("clean_dashboard", ROOT / "app_clean.py")
+spec = importlib.util.spec_from_file_location("final_dashboard", ROOT / "app_final.py")
 clean = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(clean)
 
@@ -40,7 +40,7 @@ def preserve_original_files():
 
 
 def test_imports_are_read_only_and_never_import_original_or_model_modules():
-    tree = ast.parse((ROOT / "app_clean.py").read_text(encoding="utf-8"))
+    tree = ast.parse((ROOT / "app_final.py").read_text(encoding="utf-8"))
     modules = []
     for node in ast.walk(tree):
         if isinstance(node, ast.Import):
@@ -54,7 +54,7 @@ def test_imports_are_read_only_and_never_import_original_or_model_modules():
 
 @pytest.mark.parametrize("dataset", clean.DATASETS)
 def test_all_sections_and_original_annotation_schema(dataset):
-    app = AppTest.from_file(str(ROOT / "app_clean.py"), default_timeout=90).run()
+    app = AppTest.from_file(str(ROOT / "app_final.py"), default_timeout=90).run()
     healthy(app)
     assert app.radio[0].options == clean.SECTIONS
     assert app.radio[0].value == "View Raw Data"
@@ -78,7 +78,7 @@ def test_all_sections_and_original_annotation_schema(dataset):
 
 @pytest.mark.parametrize("dataset", clean.DATASETS)
 def test_filters_apply_every_exploratory_page_and_exact_part2_scope(dataset):
-    app = AppTest.from_file(str(ROOT / "app_clean.py"), default_timeout=90).run()
+    app = AppTest.from_file(str(ROOT / "app_final.py"), default_timeout=90).run()
     widget(app, "selectbox", "Dataset").set_value(dataset).run()
     products, inventory, _ = clean.load_linked(clean.LINKED)
     frame = (pd.read_csv(ROOT / "data/openfoodfacts_eda_enriched.csv", dtype={"code": "string"}, low_memory=False)
@@ -121,7 +121,7 @@ def test_filter_semantics_leading_zero_and_empty_intersection():
 
 
 def test_bio_sources_split_selectors_and_collapsed_details():
-    app = AppTest.from_file(str(ROOT / "app_clean.py"), default_timeout=90).run()
+    app = AppTest.from_file(str(ROOT / "app_final.py"), default_timeout=90).run()
     app.radio[0].set_value("BIO Entity Tagging").run()
     for source in clean.SOURCES:
         widget(app, "selectbox", "Cached predictions source").set_value(source).run()
@@ -143,7 +143,7 @@ def test_bio_sources_split_selectors_and_collapsed_details():
 
 
 def test_results_fixed_under_filters_and_dataset_changes():
-    app = AppTest.from_file(str(ROOT / "app_clean.py"), default_timeout=90).run()
+    app = AppTest.from_file(str(ROOT / "app_final.py"), default_timeout=90).run()
     app.radio[0].set_value("Results").run()
     for source in clean.SOURCES:
         widget(app, "selectbox", "Cached predictions source").set_value(source).run()
@@ -165,7 +165,7 @@ def test_results_fixed_under_filters_and_dataset_changes():
 
 
 def test_empty_filters_are_safe_on_all_pages():
-    app = AppTest.from_file(str(ROOT / "app_clean.py"), default_timeout=90).run()
+    app = AppTest.from_file(str(ROOT / "app_final.py"), default_timeout=90).run()
     countries = widget(app, "multiselect", "Country labels").options
     categories = widget(app, "multiselect", "Category labels").options
     frame = pd.read_csv(ROOT / "data/openfoodfacts_eda_enriched.csv", dtype={"code": "string"}, low_memory=False)

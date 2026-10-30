@@ -39,7 +39,7 @@ to refresh tables because earlier cells can run inference/network checks.
 Notebook outputs and offline exports are not automatically refreshed by worker
 publication. This review did not execute or edit notebooks or run inference.
 
-Both [original app, port 8501](../app.py) and [clean app, port 8502](../app_clean_README.md)
+Both [original app, port 8501](../app.py) and [final app, port 8502](../app_final_README.md)
 can show saved evidence, but only the original app retains explicit processing
 actions. The clean app is cache-only, eight-section, raw-data-first. Its
 [offline export](../outputs/presentation/dashboard2_README.md) embeds the saved

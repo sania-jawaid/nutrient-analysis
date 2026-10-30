@@ -37,7 +37,7 @@ def file_sha256(path):
 
 def load_dashboard(root):
     """Import only the cache-only dashboard, never app.py or Part 2 models."""
-    spec = importlib.util.spec_from_file_location("dashboard2_offline_source", root / "app_clean.py")
+    spec = importlib.util.spec_from_file_location("dashboard2_offline_source", root / "app_final.py")
     if spec is None or spec.loader is None:
         raise ImportError("Cannot load the read-only dashboard")
     app = importlib.util.module_from_spec(spec)
@@ -136,8 +136,23 @@ class Recorder:
         self.emit("download", label=label, digest=digest)
 
     def image(self, path, **kwargs):
+        if isinstance(path, Image.Image):
+            preview = path.copy()
+            preview.thumbnail((800, 800))
+            # Bounded illustrative PNGs, not source images or model inputs.
+            preview = preview.quantize(colors=128, method=Image.Quantize.FASTOCTREE)
+            stream = BytesIO()
+            preview.save(stream, format="PNG")
+            raw = stream.getvalue()
+            self.emit("bio_overlay", caption=kwargs.get("caption", ""),
+                      uri="data:image/png;base64," + base64.b64encode(raw).decode("ascii"),
+                      sha256=hashlib.sha256(raw).hexdigest(), source_size=list(path.size),
+                      original_sha256=path.info.get("source_sha256"), original_file=path.info.get("source_file"))
+            return
         source = Path(path).resolve()
-        if not source.is_relative_to(self.root.resolve()):
+        import os
+        data_root = Path(os.environ.get("NUTRITION_DATA_DIR", str(self.root / "data"))).resolve()
+        if not any(source.is_relative_to(base) for base in (self.root.resolve(), data_root)):
             raise ValueError("Refusing an image outside the project")
         original_digest = file_sha256(source)
         if original_digest not in self.images:
@@ -211,7 +226,7 @@ def build_payload(root=ROOT):
                    datasets=app.DATASETS, sources=app.SOURCES, views={}, values={}, distributions={},
                    originals={}, bio={}, results={}, summaries={}, result_rows={},
                    inventory_splits=inventory.groupby("dataset_split").size().to_dict(),
-                   source_sha256={"app_clean.py": file_sha256(root / "app_clean.py")},
+                   source_sha256={"app_final.py": file_sha256(root / "app_final.py")},
                    snapshot_notes=[
                        "Frozen, unfiltered Dashboard2 snapshot. No product country/category filtering or uploads.",
                        "All eight sections retain the source dashboard's explanations, headings and tables.",
@@ -265,6 +280,11 @@ def build_payload(root=ROOT):
             # render_bio -> checked_prediction, no inferred/reference rewrites.
             events = recorder.capture(app.render_bio, inventory, summary, rows, bundle,
                                       choices={"bio_image": key})
+            # Keep the gold/prediction images and concise panel captions, but omit
+            # the long overlay explanation requested for removal from the HTML.
+            events = [event for event in events if not (
+                event.get("kind") == "caption"
+                and "Both panels use the same supplied OCR word boxes" in event.get("html", ""))]
             payload["bio"][source_key]["examples"][key] = events
             split = str(available.loc[available["image_key"].eq(key), "dataset_split"].iloc[0])
             payload["bio"][source_key]["split_keys"].setdefault(split, []).append(key)
@@ -315,7 +335,7 @@ def build_payload(root=ROOT):
         return 0
     payload["chart_spec_count"] = sum(count_specs(payload[key]) for key in
                                      ("views", "distributions", "originals", "bio", "results"))
-    payload["source_rendering"] = "Direct app_clean.py render functions with a read-only Streamlit output adapter"
+    payload["source_rendering"] = "Direct app_final.py render functions with a read-only Streamlit output adapter"
     forbidden = [name for name in sys.modules if name.startswith(("part2.layoutlm_bio", "part2.inference", "torch", "transformers", "onnxruntime", "easyocr"))]
     if forbidden:
         raise RuntimeError(f"Unexpected inference/model imports: {forbidden}")
@@ -331,7 +351,8 @@ def export(root=ROOT):
     # Single pass: do not accidentally replace a marker inside an OCR string.
     before, after = template.split("__DASHBOARD2_JSON__")
     before = before.replace("/*__PLOTLY__*/", get_plotlyjs())
-    destination = root / "outputs/presentation/dashboard2_demo.html"
+    after = after.replace("/*__BIO_VISUALIZATION__*/", visualization_controller(root))
+    destination = root / "main_output/index.html"
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(before + script_json(payload) + after, encoding="utf-8")
     print(f"Created {destination} ({destination.stat().st_size:,} bytes / {destination.stat().st_size / 1024**2:.2f} MiB)")
@@ -342,5 +363,56 @@ def export(root=ROOT):
     return destination
 
 
+def visualization_controller(root):
+    return (Path(root) / "src/nutrition_extraction/bio_comparison_offline.js").read_text(encoding="utf-8")
+
+
+def refresh_bio(root=ROOT):
+    """Refresh only saved BIO example events; keep the custom frozen shell/data."""
+    root = Path(root).resolve()
+    destination = root / "main_output/index.html"
+    html = destination.read_text(encoding="utf-8")
+    marker = '<script id="dashboard2-snapshot" type="application/json">'
+    before, rest = html.split(marker, 1)
+    raw, after = rest.split("</script>", 1)
+    payload = json.loads(raw)
+    app = load_dashboard(root)
+    recorder = Recorder(root)
+    app.st = recorder
+    _, inventory, _ = app.load_linked(app.LINKED)
+    for source, saved in payload["bio"].items():
+        bundle = app.read_json(app.BUNDLE) if source == "1" else None
+        if bundle is not None and bundle.get("inference_schema_version") != app.CACHE_SCHEMA:
+            raise ValueError("Incompatible seeded cache schema")
+        rows = pd.DataFrame(payload["result_rows"][source])
+        for key in saved["examples"]:
+            saved["examples"][key] = recorder.capture(
+                app.render_bio, inventory, payload["summaries"][source], rows, bundle,
+                choices={"bio_image": key})
+    payload["downloads"].update(recorder.downloads)
+    payload["images"].update(recorder.images)
+    payload["source_sha256"] = {"app_final.py": file_sha256(root / "app_final.py")}
+    if not any(e["kind"] == "bio_overlay" for s in payload["bio"].values()
+               for events in s["examples"].values() for e in events):
+        raise ValueError("No local official-dataset comparison available; artifact not written")
+    start, end = "/* BIO_COMPARISON_START */", "/* BIO_COMPARISON_END */"
+    controller = visualization_controller(root)
+    if start in after:
+        first, tail = after.split(start, 1)
+        _, tail = tail.split(end, 1)
+        after = first + controller + tail
+    else:
+        anchor = "D.sections.forEach(name=>"
+        if after.count(anchor) != 1:
+            raise ValueError("Cannot identify frozen controller insertion point")
+        after = after.replace(anchor, controller + "\n" + anchor, 1)
+    destination.write_text(before + marker + script_json(payload) + "</script>" + after, encoding="utf-8")
+    print(f"Refreshed BIO examples only: {destination}; charts, metrics, custom shell retained.")
+    return destination
+
+
 if __name__ == "__main__":
-    export()
+    if "--refresh-bio" in sys.argv:
+        refresh_bio()
+    else:
+        export()

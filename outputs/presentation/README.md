@@ -38,7 +38,7 @@ python scripts/export_demo_dashboard.py
 
 Run from the project root. It reads saved artifacts only; it does not start or
 interrupt inference. Regeneration replaces this HTML snapshot, not original
-dataset/model files. The distinct [Dashboard2 exporter](../../scripts/export_clean_dashboard.py)
+dataset/model files. The distinct [Dashboard2 exporter](../../scripts/export_final_dashboard.py)
 does not replace this script's original-app download contract. No export was run here.
 
 ## Attribution

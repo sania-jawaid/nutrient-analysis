@@ -4,8 +4,8 @@
 
 ## Current workflow — documentation verified 2026-10-30
 
-Start with the cache-only [Dashboard2 guide](app_clean_README.md), or open the
-[offline Dashboard2 snapshot](outputs/presentation/dashboard2_demo.html).
+Start with the cache-only [Dashboard2 guide](app_final_README.md), or open the
+[offline Dashboard2 snapshot](main_output/index.html).
 The original [app.py](app.py) is protected and **was not altered** by this
 documentation update. No Python, notebooks, data, models or scripts were edited;
 no model, installation, inference or server was run for this review.
@@ -30,7 +30,7 @@ that result or make sample metadata image-grounded truth.
 | Interface | Role | Limits |
 |---|---|---|
 | [Original app](app.py), port **8501** | Original broader exploration and explicit inference actions | Preserved; cached browsing and opt-in processing must not be confused |
-| [Clean app](app_clean.py), port **8502** | Read-only/cache-only, eight sections, **View Raw Data first** | No OCR, model loading, training, inference, image fetching or weight downloads |
+| [Final app](app_final.py), port **8502** | Read-only/cache-only, eight sections, **View Raw Data first** | No OCR, model loading, training, inference, image fetching or weight downloads |
 | [Offline Dashboard2](outputs/presentation/dashboard2_README.md) | Eight-section embedded HTML from the clean app's actual render functions | No country/category EDA filters, uploads, live refresh or inference; embedded plots remain interactive |
 | [Original seven-section demo](outputs/presentation/README.md) | Separate optional compatibility presentation downloaded by the original app | Not Dashboard2 and not automatically obsolete |
 
@@ -117,7 +117,7 @@ distinct reproducible comparison, not replaced by this larger model-only run.
      saved-artifact display cells to refresh output; do not Run All just to update
      a status table, since inference/network cells are opt-in. Saved cell outputs
      remain snapshots until explicitly refreshed. No notebooks were refreshed here.
-6. [Dashboard2 exporter](scripts/export_clean_dashboard.py) embeds local charts,
+6. [Dashboard2 exporter](scripts/export_final_dashboard.py) embeds local charts,
      results, downloads and thumbnails from the actual clean render functions.
      Re-export only when a new HTML snapshot is wanted; it does not refresh notebook
      output, run inference or update source artifacts. See its
@@ -219,7 +219,7 @@ Install the optional dashboard dependencies in the project virtual environment a
 ```powershell
 pip install -e ".[dashboard]"
 python -m streamlit run app.py --server.port 8501
-python -m streamlit run app_clean.py --server.port 8502
+python -m streamlit run app_final.py --server.port 8502
 ```
 
 The original dashboard defaults to the enriched sample, supports CSV/TSV upload

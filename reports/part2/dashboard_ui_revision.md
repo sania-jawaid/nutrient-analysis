@@ -4,7 +4,7 @@
 > eleven-page navigation and 71-test/browser statements below are records of
 > that revision, not the clean dashboard's navigation or a new suite result.
 > Original [app.py](../../app.py), port 8501, was not altered. Current
-> [Dashboard2](../../app_clean_README.md), port 8502, is eight-section,
+> [Dashboard2](../../app_final_README.md), port 8502, is eight-section,
 > raw-data-first and cache-only, with separate basic/detailed task explanations
 > and micro-score interpretation. The current [full-cohort summary](../../outputs/full_cohort_bio/summary.json)
 > is paused/partial, not evidence of an active worker. See the

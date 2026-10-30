@@ -43,7 +43,7 @@ proposed for deletion. No tests were rerun to recreate historical evidence.
   [original export](../outputs/presentation/nutrition_dashboard_demo.html) and
   [tests](../tests/test_demo_export.py). Original [app.py](../app.py) still exposes
   that HTML download. The **6,818,537-byte** original HTML and **27,375,505-byte**
-  [Dashboard2 HTML](../outputs/presentation/dashboard2_demo.html) are distinct
+  [Dashboard2 HTML](../main_output/index.html) are distinct
   seven-/eight-section products, not proven duplicates. Compatibility removal
   would need a separate user-approved code/UI change.
 - **Keep [data/openfoodfacts_sample.csv](../data/openfoodfacts_sample.csv)** and
@@ -84,7 +84,7 @@ proposed for deletion. No tests were rerun to recreate historical evidence.
 - The saved full-cohort summary is `paused_model_load_error`, **441 completed /
   3,075**, **1 failed**, **2,633 pending** (195 test / 246 train), timestamp
   2026-10-30T15:01:33.063231+00:00. Do not describe it as an active run.
-- Original [app.py](../app.py) and [app_clean.py](../app_clean.py) were not altered.
+- Original [app.py](../app.py) and the [cache-only app (now app_final.py)](../app_final.py) were not altered during that review.
   The only subsequent non-Markdown changes were the eight explicitly approved deletions above; no Git-index changes were made.
 - Outside this project, the parent [exercise.md](../../exercise.md) and
   [Pune_Derby_Case_Study.md](../../Pune_Derby_Case_Study.md) are preserved original

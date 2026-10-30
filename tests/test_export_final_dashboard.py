@@ -8,6 +8,7 @@ import gzip
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import re
 import shutil
@@ -18,7 +19,8 @@ import pandas as pd
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location("export_dashboard2", ROOT / "scripts/export_clean_dashboard.py")
+DATA_DIR = Path(os.environ.get("NUTRITION_DATA_DIR", str(ROOT / "data")))
+SPEC = importlib.util.spec_from_file_location("export_dashboard2", ROOT / "scripts/export_final_dashboard.py")
 exporter = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(exporter)
 SECTIONS = ["View Raw Data", "Data Overview", "Data Understanding", "Nutrients",
@@ -27,8 +29,8 @@ SECTIONS = ["View Raw Data", "Data Overview", "Data Understanding", "Nutrients",
 
 @pytest.fixture(scope="module")
 def artifact():
-    path = ROOT / "outputs/presentation/dashboard2_demo.html"
-    assert path.is_file(), "Generate Dashboard2 with scripts/export_clean_dashboard.py first"
+    path = ROOT / "main_output/index.html"
+    assert path.is_file(), "Generate Dashboard2 with scripts/export_final_dashboard.py first"
     html = path.read_text(encoding="utf-8")
     start = '<script id="dashboard2-snapshot" type="application/json">'
     text = html.split(start, 1)[1].split("</script>", 1)[0]
@@ -99,7 +101,9 @@ def test_exact_navigation_dataset_counts_and_source_fingerprint(artifact):
     assert data["views"]["0"]["row_count"] == 50_000
     assert data["views"]["1"]["row_count"] == 3075
     assert sum(data["inventory_splits"].values()) == 3083
-    assert data["source_sha256"]["app_clean.py"] == exporter.file_sha256(ROOT / "app_clean.py")
+    # Frozen snapshots retain their historical source filename across a rename.
+    assert len(data["source_sha256"]) == 1
+    assert next(iter(data["source_sha256"].values())) == exporter.file_sha256(ROOT / "app_final.py")
     assert path.stat().st_size < 50 * 1024**2
     for views in data["views"].values():
         assert all(section in views for section in SECTIONS[:6])
@@ -143,7 +147,7 @@ def test_every_nutrient_has_exact_three_graph_types_and_black_palette(artifact):
 
 def test_distributions_preserve_all_finite_values_zeros_and_extremes(artifact):
     _, data, _ = artifact
-    sample = pd.read_csv(ROOT / "data/openfoodfacts_eda_enriched.csv", low_memory=False)
+    sample = pd.read_csv(DATA_DIR / "openfoodfacts_eda_enriched.csv", low_memory=False)
     for field in data["distributions"]["0"]:
         actual = pd.to_numeric(sample[field], errors="coerce").replace([float("inf"), -float("inf")], float("nan")).dropna().tolist()
         assert data["values"][f"0:{field}"] == actual
@@ -239,7 +243,7 @@ def test_comparison_copy_and_scores_match_live_rendering_in_both_sources(artifac
         assert "Understanding the Results" in json.dumps(data["results"][key])
         details = next(e for e in expected if e.get("label") == "Details · long images and new-image reading")
         assert details["expanded"] is False
-    bundle = json.loads((ROOT / "data/part2_cache/layoutlm_bio/latest_test_bundle.json").read_text())
+    bundle = json.loads((DATA_DIR / "part2_cache/layoutlm_bio/latest_test_bundle.json").read_text())
     assert data["summaries"]["1"]["metrics_by_split"]["test"] == dict(images=20, **bundle["fine_grained_metrics"])
 
 
@@ -255,6 +259,10 @@ def test_images_are_inline_and_hashes_match_thumbnails(artifact):
     assert not re.search(r'<(?:script|img|link|iframe)\b[^>]*(?:src|href)\s*=\s*[\"\x27](?:https?:|file:|/)', html, re.I)
     assert "connect-src 'none'" in html
     assert "/*__PLOTLY__*/" not in html and "__DASHBOARD2_JSON__" not in html
+    assert "Bounding boxes · dataset gold vs cached predictions" in html
+    assert '"kind":"bio_overlay"' in html
+    assert "Both panels use the same supplied OCR word boxes" not in html
+    assert "Dataset group = official train or test split" in html
     assert "Plotly.newPlot" in html and "plotly.js v" in html
 
 

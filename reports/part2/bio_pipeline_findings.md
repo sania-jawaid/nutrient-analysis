@@ -9,7 +9,7 @@
 > records **441/3,075 completed, 1 failed, 2,633 pending**, status
 > `paused_model_load_error`, not an active worker or replacement benchmark.
 > See the [current workflow](../../README.md#current-workflow--documentation-verified-2026-10-30)
-> and [cache-only Dashboard2](../../app_clean_README.md). Original-app references
+> and [cache-only Dashboard2](../../app_final_README.md). Original-app references
 > below concern port 8501; the clean app on 8502 never runs inference.
 
 ## Scope and reproducibility

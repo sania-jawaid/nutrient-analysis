@@ -9,7 +9,7 @@
 > run/scoring convention; do not overwrite or pool either result. The
 > [current workflow](../../README.md#current-workflow--documentation-verified-2026-10-30)
 > documents the paused, partial full cohort. Dashboard actions below describe
-> the original app (8501), not [cache-only Dashboard2](../../app_clean_README.md)
+> the original app (8501), not [cache-only Dashboard2](../../app_final_README.md)
 > on 8502. No model, OCR, tests or notebook cells were run for this doc update.
 
 ## Provenance

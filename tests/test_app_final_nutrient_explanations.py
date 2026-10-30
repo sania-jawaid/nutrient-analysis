@@ -10,7 +10,7 @@ from streamlit.testing.v1 import AppTest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location("clean_nutrient_explanations", ROOT / "app_clean.py")
+spec = importlib.util.spec_from_file_location("final_nutrient_explanations", ROOT / "app_final.py")
 clean = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(clean)
 
@@ -109,7 +109,7 @@ def test_explanations_preserve_charts_summary_and_correlation(monkeypatch, kind,
 
 @pytest.mark.parametrize("dataset", clean.DATASETS)
 def test_fixed_examples_stay_separate_from_filtered_active_statistics(dataset):
-    app = AppTest.from_file(str(ROOT / "app_clean.py"), default_timeout=90).run()
+    app = AppTest.from_file(str(ROOT / "app_final.py"), default_timeout=90).run()
     next(w for w in app.selectbox if w.label == "Dataset").set_value(dataset).run()
     app.radio[0].set_value("Nutrients").run()
     assert not app.exception

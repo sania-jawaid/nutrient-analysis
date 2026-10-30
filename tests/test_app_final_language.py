@@ -10,7 +10,7 @@ import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location("clean_language_dashboard", ROOT / "app_clean.py")
+spec = importlib.util.spec_from_file_location("final_language_dashboard", ROOT / "app_final.py")
 clean = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(clean)
 

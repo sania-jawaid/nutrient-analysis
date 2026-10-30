@@ -3,7 +3,7 @@
 > **Historical original-app integration revision — context added 2026-10-30.**
 > Navigation and validation counts below describe that revision of the protected
 > original app (8501), not today's clean navigation or a freshly verified test
-> total. [Dashboard2](../../app_clean_README.md), port 8502, is cache-only with
+> total. [Dashboard2](../../app_final_README.md), port 8502, is cache-only with
 > eight sections, View Raw Data first, and fixed evaluation denominators.
 > The 3,075 matched rows come from the full **4,881,991-row** source scan, not
 > the 50K EDA sample; 3,083 original annotation images include eight unmatched.

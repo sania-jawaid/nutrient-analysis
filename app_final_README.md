@@ -1,10 +1,37 @@
-# Clean nutrition dashboard
+# Final nutrition dashboard
+
+## Cached image comparison (2026-10-31)
+
+The **BIO Entity Tagging** page now shows **Bounding boxes · dataset gold vs
+cached predictions**, with two images side by side. Both use the same supplied
+OCR coordinates, converted from the original 0–1000 frame. The model predicts
+labels, not box locations. Non-O labels are boxed: green means an exact BIO-label
+match; amber means a mismatch. Small numbers link boxes to zero-based token
+indices in the retained Advanced table. Sample label counts include O and do
+not replace the existing span metrics. Images retain their original orientation.
+
+Gold is the original official-dataset annotation, not independently checked
+package truth. Uploads do not acquire gold labels from this feature. No OCR,
+inference, model download or training is performed.
+
+Set `NUTRITION_DATA_DIR` to the existing local data directory when data lives
+outside this project. The image resolver first tries the saved basename under
+that directory's image cache, then a saved existing path only within the project
+or explicitly configured data directory. Saved image SHA-256 values are checked
+when present. Missing or hash-mismatched images produce a notice, not a download.
+
+The [standalone HTML](main_output/index.html) embeds the same PNG comparisons.
+The [exporter](scripts/export_final_dashboard.py) supports `--refresh-bio` to
+refresh only existing BIO examples, preserving frozen charts, summaries,
+downloads, FINAL branding, overlap explanation and the removed sidebar timestamp.
+The [overlay tests](tests/test_bio_visualization.py) cover geometry, nonmutation,
+cache path/hash restrictions, embedded images and the cached-only Streamlit UI.
 
 > **Current guide — 2026-10-30.** See the [project workflow](README.md#current-workflow--documentation-verified-2026-10-30)
 > for dataset denominators, optional processing and historical reports. This
 > documentation-only update did not alter the original app, this app or any notebook.
 
-The separate entry point is [app_clean.py](app_clean.py). The original
+The separate entry point is [app_final.py](app_final.py). The original
 [app.py](app.py) is neither imported nor changed. Existing source modules,
 notebooks, configuration, models, annotation tables and worker outputs remain read-only.
 
@@ -20,7 +47,7 @@ workspace's existing `.venv-2` environment. No dependency installation was neede
 Launch from the project root using an existing compatible environment:
 
 ```powershell
-python -m streamlit run app_clean.py --server.port 8502
+python -m streamlit run app_final.py --server.port 8502
 ```
 
 The original [app.py](app.py) uses port **8501** and remains a separate interface.
@@ -100,18 +127,24 @@ resuming inference is a separate explicit [workflow](README.md#full-cohort-check
 
 ### Offline Dashboard2
 
-Open [the eight-section HTML](outputs/presentation/dashboard2_demo.html) or read
+Open [the eight-section HTML](main_output/index.html) or read
 its [capability guide](outputs/presentation/dashboard2_README.md). The
-[exporter](scripts/export_clean_dashboard.py) calls this app's render functions
+[exporter](scripts/export_final_dashboard.py) calls this app's render functions
 and embeds plots/results/downloads/thumbnails. It does **not** export live
 country/category EDA filters, uploads, inference or status refresh. The full
 correlation matrix is embedded rather than the live six-field default. The
 [earlier seven-section demo](outputs/presentation/README.md) remains separate
 and optional; its exporter is not replaced for original-app compatibility.
 
+The `_clean` entry-point, exporter and test filenames were renamed to `_final`.
+The viewer snapshot's BIO examples were selectively refreshed on 2026-10-31;
+its other frozen data and custom shell were preserved. Its source fingerprint
+now identifies the final app used for that refresh. Internal CSS classes and
+the offline shell's existing filename are unchanged.
+
 ## Validation scope
 
-[tests/test_app_clean.py](tests/test_app_clean.py) uses Streamlit AppTest without a server:
+[tests/test_app_final.py](tests/test_app_final.py) uses Streamlit AppTest without a server:
 all sections on both datasets, shared filters, exact barcode scope, raw annotation
 preservation, split/image selection for both cache sources, empty results,
 fixed evaluation denominators, missing/incompatible caches, coverage/gold mismatch

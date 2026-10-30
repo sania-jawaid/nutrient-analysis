@@ -6,6 +6,7 @@ from __future__ import annotations
 
 from html import escape
 import json
+import os
 from pathlib import Path
 import sys
 
@@ -15,15 +16,17 @@ import plotly.express as px
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
+DATA_DIR = Path(os.environ.get("NUTRITION_DATA_DIR", str(ROOT / "data")))
 if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
 from nutrition_extraction.dashboard_data import filter_products, label_set, numeric_modes
 from nutrition_extraction.linked_data import annotation_preview, load_linked, products_for_eda
+from nutrition_extraction.bio_visualization import CAVEAT, comparison_overlays, resolve_cached_image
 
 LINKED = ROOT / "outputs/part1_part2_integration"
 FULL = ROOT / "outputs/full_cohort_bio"
-BUNDLE = ROOT / "data/part2_cache/layoutlm_bio/latest_test_bundle.json"
+BUNDLE = DATA_DIR / "part2_cache/layoutlm_bio/latest_test_bundle.json"
 # Display compatibility contract, deliberately no import of the inference module.
 CACHE_SCHEMA = "5-adaptive-sliding-structured"
 SECTIONS = ["View Raw Data", "Data Overview", "Data Understanding", "Nutrients",
@@ -72,7 +75,7 @@ def load_inventory(stamp):
 @st.cache_data(show_spinner=False, max_entries=2)
 def load_sample(stamp):
     del stamp
-    return pd.read_csv(ROOT / "data/openfoodfacts_eda_enriched.csv",
+    return pd.read_csv(DATA_DIR / "openfoodfacts_eda_enriched.csv",
                        dtype={"code": "string"}, low_memory=False)
 
 
@@ -138,7 +141,7 @@ def sample_nutrient_examples(stamp):
 
 def render_sample_nutrient_examples():
     with st.expander("50K sample examples · not changed by filters", expanded=False):
-        path = ROOT / "data/openfoodfacts_eda_enriched.csv"
+        path = DATA_DIR / "openfoodfacts_eda_enriched.csv"
         if not path.is_file():
             st.caption("The saved enriched sample is unavailable; no fixed examples are asserted.")
             return
@@ -232,7 +235,7 @@ def render_raw(frame, images):
                "serving_size = stated portion. Nutrient endings: _100g = per 100 g (sometimes 100 ml for liquids); "
                "_100ml = per 100 ml; _serving = per portion. Blank means unknown, not zero. Source field names stay unchanged.")
     st.download_button("Download filtered products", frame.to_csv(index=False).encode("utf-8"),
-                       file_name="clean_filtered_products.csv", mime="text/csv")
+                       file_name="final_filtered_products.csv", mime="text/csv")
     st.subheader("Original words and reference labels")
     render_original(images, "raw")
 
@@ -269,6 +272,12 @@ def render_understanding(frame, images, dataset):
 - **Part 2:** nutrition images, OCR words and reference labels from its nutrient-detection-layout dataset.
 - **Overlapped dataset:** barcodes matched against the complete saved Part 1 export, not just the 50K sample.
 - A barcode match does not prove the same packaging, date, recipe or nutrient values. Eight Part 2 images have no match.
+
+### How was the overlap calculated?
+We compared the product barcodes in all **3,083 Part 2 image records** with the barcodes in the previously scanned **complete Part 1 export (4,881,991 rows)**, not just the 50K sample.
+Barcodes were kept as text, with leading zeros preserved and only surrounding spaces removed. A match required exactly the same barcode—no guessing or adding zeros.
+This found **3,075 shared product barcodes (99.74% of Part 2)**; **8 Part 2 records** had no match. Product details were linked by barcode, while images and their original word labels stayed in separate linked tables to avoid duplicating product rows.
+These are saved integration results. This dashboard does not repeat the full scan, and a shared barcode does not verify that the image shows the same packaging or nutrition values.
 
 ### Per 100 g or per serving?
 - **Basis** means the amount of food a value describes: per100g = per 100 g; perServing = per portion.
@@ -519,6 +528,23 @@ def extracted_table(structured):
     return pd.DataFrame(rows, columns=["nutrient", "value", "unit", "basis", "status"])
 
 
+def render_bio_comparison(payload, prediction):
+    st.subheader("Bounding boxes · dataset gold vs cached predictions")
+    st.caption(CAVEAT)
+    path = resolve_cached_image(payload, DATA_DIR, ROOT)
+    if path is None:
+        st.info("Original cached image is not available locally or its saved hash differs. No image download was attempted.")
+        return
+    panels, counts = comparison_overlays(path, payload["bboxes"], prediction["gold_labels"], prediction["predicted_labels"])
+    st.caption(f"Exact token labels: {counts['matches']} match / {counts['mismatches']} mismatch / "
+               f"{counts['tokens']} total (including O). Non-O boxes: gold {counts['gold_non_o']}, "
+               f"prediction {counts['predicted_non_o']}; {counts['active_tokens']} tokens marked by either side. "
+               "These are sample counts, not a replacement for span precision, recall or F1.")
+    columns = st.columns(2)
+    for column, panel, title in zip(columns, panels, ("Dataset gold · original annotations", "Cached model predictions")):
+        column.image(panel, caption=title, width="stretch")
+
+
 def render_bio(images, summary, rows, bundle):
     st.markdown("### How word labels work (BIO)\n"
                 "- **B = beginning**, **I = inside the same answer**, **O = outside any marked answer**. An entity is a group of words marked as one answer.\n"
@@ -543,12 +569,7 @@ def render_bio(images, summary, rows, bundle):
     annotations = original_annotations(key, fingerprint([LINKED / "integrated_annotations.parquet"]))
     prediction = checked_prediction(payload, row, annotations)
     st.caption(f"{key} · barcode {row['barcode']} · {len(annotations):,} original OCR words · every word has a saved prediction")
-    path = Path(payload.get("image_path", ""))
-    # Local images only, never fetch a missing image or choose another packaging version.
-    if path.is_file() and path.resolve().is_relative_to(ROOT.resolve()):
-        st.image(str(path), width=450)
-    else:
-        st.info("Original cached image is not available locally. No image download was attempted.")
+    render_bio_comparison(payload, prediction)
     st.subheader("Extracted nutrient values")
     structured = prediction.get("structured_output") or {}
     table(extracted_table(structured), {"nutrient": "Nutrient", "value": "Amount", "unit": "Unit", "basis": "Per what amount?", "status": "Reading status"})
@@ -586,9 +607,14 @@ def render_approaches():
                    "These are not independently verified image readings. The results-source selector and product filters do not change this comparison.")
     for heading, explanation, methods in [
         ("Basic Nutrient Detection",
-         "Both methods are scored on the same task: finding value and measurement groups. "
-         "All annotated nutrient values become VALUE; the annotated serving-size group becomes BASIS "
-         "(for example, 30 g as a serving amount). An ordinary OCR phrase such as per100g is not automatically a reference BASIS entity.",
+         "Both methods are tested on the same task: **finding nutritional values and serving amounts on a food label.**\n\n"
+         "For example, imagine a label says:\n\n"
+         "- **Fat: 12 g** → The number **12 g** is marked as **VALUE**.\n"
+         "- **Protein: 5 g** → The number **5 g** is marked as **VALUE**.\n"
+         "- **Serving size: 30 g** → The number **30 g** is marked as **BASIS**.\n\n"
+         "Both methods try to find these numbers correctly.\n\n"
+         "**Important:** If the label says **“per 100 g”**, this is not automatically marked as BASIS. "
+         "Only serving amounts specifically labeled in the dataset count as BASIS during evaluation.",
          [("Rules · Basic Nutrient Detection", "coarse_rule_metrics"),
           ("LayoutLMv3 · Basic Nutrient Detection", "coarse_model_metrics")]),
         ("Detailed Nutrient Identification",
@@ -601,6 +627,10 @@ def render_approaches():
         st.subheader(heading)
         st.markdown(explanation)
         if saved is not None:
+            if heading == "Basic Nutrient Detection":
+                st.caption(f"Dataset for this comparison: {len(saved['samples'])} fixed, seeded images from the official "
+                           "openfoodfacts/nutrient-detection-layout test split, using its supplied OCR words and original BIO reference labels. "
+                           "This is not the full 3,075-image matched cohort; dashboard filters do not change this sample.")
             comparisons = []
             for title, key in methods:
                 m = saved[key]
@@ -632,6 +662,36 @@ def render_results(summary):
                                 "token_support": "Words scored", "true_positives": "Exact matches (TP)",
                                 "false_positives": "Wrong/extra answers (FP)", "false_negatives": "Missed answers (FN)",
                                 "gold_span_support": "Reference answers scored"})
+    st.caption("Dataset group = official train or test split. Images scored = images with saved predictions included in these scores. "
+               "Target images = matched images expected in that group (or the selected 20 for the seeded test sample). "
+               "Pending and failed images are not scored.")
+    split_metrics = summary.get("metrics_by_split", {})
+    split_targets = summary.get("target_splits", {})
+    failures = []
+    failure_path = FULL / "failures.json"
+    if summary.get("input_fingerprint") and failure_path.is_file():
+        failures = read_json(failure_path)
+    progress_lines = []
+    for split in ("train", "test"):
+        target = split_targets.get(split)
+        if target is None:
+            continue
+        scored = int(split_metrics.get(split, {}).get("images", 0))
+        failed = sum(item.get("split") == split for item in failures)
+        pending = max(0, int(target) - scored - failed)
+        progress_lines.append(f"- **{split.title()}:** {scored:,} of {int(target):,} scored; "
+                              f"{pending:,} pending; {failed:,} failed.")
+    if progress_lines:
+        st.markdown("**Why do the train/test counts differ?**\n\n" + "\n".join(progress_lines) +
+                    "\n\nThe table counts images with saved predictions, not the full split sizes. "
+                    "Pending or failed images have no score and are not treated as incorrect.")
+    if summary.get("status") == "paused_model_load_error" and failures:
+        memory_error = next((item.get("error", "") for item in failures
+                             if "InsufficientResourcesError" in item.get("error", "")), "")
+        if memory_error:
+            st.warning("Why processing paused: there was not enough free memory to load the model. "
+                       "The saved error says " + memory_error.split(". No weights were loaded.")[0] +
+                       ". Completed image predictions remain saved; pending images still need processing.")
     st.caption("Scores are fractions: 0.8 means 80%. Counts are pooled across scored images, not averaged image by image. "
                "Blank means not processed or not applicable, not zero accuracy. Seeded-20 is a small test subset, not the whole test group.")
     st.markdown("""
@@ -661,7 +721,7 @@ def render_results(summary):
 
 
 def main():
-    st.set_page_config(page_title="Nutrition · Clean dashboard", page_icon="◈", layout="wide")
+    st.set_page_config(page_title="Nutrition · Final dashboard", page_icon="◈", layout="wide")
     st.markdown(CSS, unsafe_allow_html=True)
     try:
         products, inventory, _ = load_inventory(fingerprint([LINKED / n for n in
@@ -671,7 +731,7 @@ def main():
             section = st.radio("Navigate dashboard", SECTIONS, key="section")
             st.divider()
             dataset = st.selectbox("Dataset", DATASETS, key="dataset")
-            frame = (load_sample(fingerprint([ROOT / "data/openfoodfacts_eda_enriched.csv"]))
+            frame = (load_sample(fingerprint([DATA_DIR / "openfoodfacts_eda_enriched.csv"]))
                      if dataset == DATASETS[0] else products_for_eda(products))
             # Clear stale selections when the product dataset changes.
             if st.session_state.get("filter_dataset") != dataset:
@@ -684,7 +744,7 @@ def main():
             st.caption("Saved local data only. No model loading, image-text reading, predictions or training are run.")
         filtered = filter_products(frame, countries, categories)
         images = scoped_images(inventory, filtered, bool(countries or categories))
-        st.markdown(f'<div class="clean-hero"><small>OPEN FOOD FACTS · CLEAN VIEW</small>'
+        st.markdown(f'<div class="clean-hero"><small>OPEN FOOD FACTS · FINAL VIEW</small>'
                     f'<h1>{escape(section)}</h1><p>Explore the data. Understand the evidence.</p></div>', unsafe_allow_html=True)
         st.caption(f"{dataset} · {len(filtered):,} / {len(frame):,} product rows · "
                          + ("Part 2: images with an exact barcode match to selected products." if countries or categories else
