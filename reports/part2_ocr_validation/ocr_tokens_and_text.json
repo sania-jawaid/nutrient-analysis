@@ -1,0 +1,263 @@
+{
+  "product_id": "241013128",
+  "source_image": "data/manual_samples/241013128_nutrition.jpg",
+  "manual_reference_text": "Valeurs nutritionnelles moyennes pour 100 g : Energie 992 kJ (237 kcal) soit 12% des AR(1) - Matières grasses 9,5 g, dont acides gras saturés 4,2 g - Glucides 32 g, dont sucres 21,7 g - Protéines 4,6 g - Sel 0,36 g.\nValeurs nutritionnelles moyennes pour une portion de 90 g : Energie 893 kJ (213 kcal) soit 11% des AR(1) - Matières grasses 8,6 g, dont acides gras saturés 3,8 g - Glucides 28,8 g, dont sucres 19,5 g - Protéines 4,1 g - Sel 0,32 g.\n(1) Apports de Référence pour un adulte-type (8400 kJ/2000 kcal). Ce produit contient 2 portions.",
+  "ocr_status": "success",
+  "ocr_error": null,
+  "detections": [
+    {
+      "text": "Valeurs nutritionnelles moyennes pour 100 9:",
+      "bbox": [
+        [
+          8,
+          20
+        ],
+        [
+          366,
+          20
+        ],
+        [
+          366,
+          50
+        ],
+        [
+          8,
+          50
+        ]
+      ],
+      "confidence": 0.6751834842498975,
+      "reading_order": 0
+    },
+    {
+      "text": "Energie 992k/ (237 kcal) soit 12% des ARI _ Matières grasses",
+      "bbox": [
+        [
+          8,
+          42
+        ],
+        [
+          390,
+          42
+        ],
+        [
+          390,
+          72
+        ],
+        [
+          8,
+          72
+        ]
+      ],
+      "confidence": 0.3049875960047645,
+      "reading_order": 1
+    },
+    {
+      "text": "9,59, dont acides gras saturés 4,2 9 - Glucides 32 9, dont",
+      "bbox": [
+        [
+          8,
+          62
+        ],
+        [
+          390,
+          62
+        ],
+        [
+          390,
+          94
+        ],
+        [
+          8,
+          94
+        ]
+      ],
+      "confidence": 0.4631332199551793,
+      "reading_order": 2
+    },
+    {
+      "text": "sucres 21,7g - Proteines 4,69 -Sel 0,36g",
+      "bbox": [
+        [
+          10,
+          84
+        ],
+        [
+          276,
+          84
+        ],
+        [
+          276,
+          114
+        ],
+        [
+          10,
+          114
+        ]
+      ],
+      "confidence": 0.6396063083234779,
+      "reading_order": 3
+    },
+    {
+      "text": "Valeurs nutritionnelles moyennes pour une portion",
+      "bbox": [
+        [
+          8,
+          104
+        ],
+        [
+          390,
+          104
+        ],
+        [
+          390,
+          136
+        ],
+        [
+          8,
+          136
+        ]
+      ],
+      "confidence": 0.9392489039037113,
+      "reading_order": 4
+    },
+    {
+      "text": "de 90 g",
+      "bbox": [
+        [
+          8,
+          134
+        ],
+        [
+          70,
+          134
+        ],
+        [
+          70,
+          160
+        ],
+        [
+          8,
+          160
+        ]
+      ],
+      "confidence": 0.49366279216326964,
+      "reading_order": 5
+    },
+    {
+      "text": "Energie 893 kJ (213 kcal) soit 11% des AR(\"",
+      "bbox": [
+        [
+          76,
+          126
+        ],
+        [
+          380,
+          126
+        ],
+        [
+          380,
+          158
+        ],
+        [
+          76,
+          158
+        ]
+      ],
+      "confidence": 0.37937989078940126,
+      "reading_order": 6
+    },
+    {
+      "text": "Matières grasses 8,6 9, dont acides gras saturés 3,8 9",
+      "bbox": [
+        [
+          8,
+          150
+        ],
+        [
+          380,
+          150
+        ],
+        [
+          380,
+          180
+        ],
+        [
+          8,
+          180
+        ]
+      ],
+      "confidence": 0.4684167596186288,
+      "reading_order": 7
+    },
+    {
+      "text": "Glucides 28,89,dont suces 19,59-Proteines 4,19-Sel0,32g",
+      "bbox": [
+        [
+          8,
+          170
+        ],
+        [
+          388,
+          170
+        ],
+        [
+          388,
+          202
+        ],
+        [
+          8,
+          202
+        ]
+      ],
+      "confidence": 0.48100483191999893,
+      "reading_order": 8
+    },
+    {
+      "text": "@Apports de Référence pour un adulte-type (8400 kJ/2000 kcal) .",
+      "bbox": [
+        [
+          5,
+          193
+        ],
+        [
+          389,
+          193
+        ],
+        [
+          389,
+          230
+        ],
+        [
+          5,
+          230
+        ]
+      ],
+      "confidence": 0.4790272963329409,
+      "reading_order": 9
+    },
+    {
+      "text": "(e produit contient 2 portions .",
+      "bbox": [
+        [
+          8,
+          218
+        ],
+        [
+          193,
+          218
+        ],
+        [
+          193,
+          246
+        ],
+        [
+          8,
+          246
+        ]
+      ],
+      "confidence": 0.8766509596905189,
+      "reading_order": 10
+    }
+  ],
+  "ocr_text": "Valeurs nutritionnelles moyennes pour 100 9: Energie 992k/ (237 kcal) soit 12% des ARI _ Matières grasses 9,59, dont acides gras saturés 4,2 9 - Glucides 32 9, dont sucres 21,7g - Proteines 4,69 -Sel 0,36g Valeurs nutritionnelles moyennes pour une portion de 90 g Energie 893 kJ (213 kcal) soit 11% des AR(\" Matières grasses 8,6 9, dont acides gras saturés 3,8 9 Glucides 28,89,dont suces 19,59-Proteines 4,19-Sel0,32g @Apports de Référence pour un adulte-type (8400 kJ/2000 kcal) . (e produit contient 2 portions ."
+}

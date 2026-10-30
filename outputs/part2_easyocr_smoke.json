@@ -1,0 +1,14 @@
+{
+  "barcode": "241013128",
+  "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\manual_samples\\241013128_nutrition.jpg",
+  "nutrition_basis": null,
+  "nutrients": {},
+  "unresolved_fields": [],
+  "warnings": [
+    "OCR confidence is not calibrated confidence in nutrient-value association.",
+    "OCR failed; no nutrient values were inferred."
+  ],
+  "ocr_error": "RuntimeError: EasyOCR is optional. Install with: pip install -e '.[easyocr]'",
+  "processing_time_seconds": 0.005681599956005812,
+  "method": "easyocr+spatial-rules"
+}

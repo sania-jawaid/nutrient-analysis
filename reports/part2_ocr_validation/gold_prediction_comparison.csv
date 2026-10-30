@@ -1,0 +1,17 @@
+nutrient,gold_basis,predicted_basis,basis_match,gold_value,gold_unit_canonical,gold_unit_original,predicted_value,predicted_unit_canonical,predicted_unit_original,absolute_difference_canonical_units,value_within_tolerance,exact_original_unit_match,exact_nutrient_value_unit_basis_match,status
+sugars,per_100g,unspecified,False,21.7,g,g,21.7,g,g,0.0,True,True,False,basis_mismatch
+energy,per_serving,per_serving,True,213.4321223709369,kcal,kJ,213.4321223709369,kcal,kj,0.0,True,True,True,exact_match
+energy,per_100g,,False,237.09369024856596,kcal,kJ,,,,,False,False,False,missing_prediction
+energy,per_100g,,False,237.0,kcal,kcal,,,,,False,False,False,missing_prediction
+fat,per_100g,,False,9.5,g,g,,,,,False,False,False,missing_prediction
+saturated_fat,per_100g,,False,4.2,g,g,,,,,False,False,False,missing_prediction
+carbohydrates,per_100g,,False,32.0,g,g,,,,,False,False,False,missing_prediction
+proteins,per_100g,,False,4.6,g,g,,,,,False,False,False,missing_prediction
+salt,per_100g,,False,0.36,g,g,,,,,False,False,False,missing_prediction
+energy,per_serving,,False,213.0,kcal,kcal,,,,,False,False,False,missing_prediction
+fat,per_serving,,False,8.6,g,g,,,,,False,False,False,missing_prediction
+saturated_fat,per_serving,,False,3.8,g,g,,,,,False,False,False,missing_prediction
+carbohydrates,per_serving,,False,28.8,g,g,,,,,False,False,False,missing_prediction
+sugars,per_serving,,False,19.5,g,g,,,,,False,False,False,missing_prediction
+proteins,per_serving,,False,4.1,g,g,,,,,False,False,False,missing_prediction
+salt,per_serving,,False,0.32,g,g,,,,,False,False,False,missing_prediction

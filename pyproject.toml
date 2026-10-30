@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nutrition-extraction-starter"
+version = "0.1.0"
+description = "Starter pipeline for EDA and nutrition entity extraction from product images"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "pandas>=2.1,<3.0",
+  "Pillow>=10.0,<12.0",
+  "PyYAML>=6.0,<7.0",
+  "scikit-learn>=1.3,<2.0",
+  "numpy>=1.26,<3.0",
+  "matplotlib>=3.8,<4.0",
+  "seaborn>=0.13,<1.0",
+]
+
+[project.optional-dependencies]
+train = [
+  "torch>=2.2,<3.0",
+  "transformers>=4.44,<5.0",
+  "accelerate>=0.33,<2.0",
+  "seqeval>=1.2,<2.0",
+]
+bio-inference = [
+  "torch>=2.2,<3.0",
+  "transformers>=4.44,<5.0",
+  "accelerate>=0.33,<2.0",
+  "onnxruntime>=1.18,<2.0",
+]
+ocr = ["pytesseract>=0.3.10,<0.4"]
+easyocr = ["easyocr>=1.7.2,<2.0"]
+paddleocr = ["paddleocr>=2.7,<4.0"]
+image-audit = ["opencv-python-headless>=4.9,<5.0"]
+dashboard = ["streamlit>=1.40,<2.0", "plotly>=5.24,<7.0"]
+test = ["pytest>=8.0,<9.0"]
+
+[project.scripts]
+nutrition-acquire = "nutrition_extraction.acquire:main"
+nutrition-scout-annotations = "nutrition_extraction.annotation_scout:main"
+nutrition-eda = "nutrition_extraction.eda:main"
+nutrition-split = "nutrition_extraction.splitting:main"
+nutrition-ocr-predict = "nutrition_extraction.ocr_predict:main"
+nutrition-train = "nutrition_extraction.train:main"
+nutrition-evaluate = "nutrition_extraction.evaluate:main"
+nutrition-predict = "nutrition_extraction.predict:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

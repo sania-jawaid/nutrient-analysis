@@ -1,0 +1,25 @@
+﻿metric,value,denominator
+part1_rows,50000,records in enriched Part 1 CSV
+part1_missing_ids,0,Part 1 rows
+part1_invalid_non_digit_ids,0,Part 1 rows
+part1_valid_id_rows,50000,Part 1 rows
+part1_unique_valid_products,50000,unique trimmed digit-only IDs
+part1_duplicate_valid_id_rows,0,valid Part 1 ID rows beyond first occurrence
+part2_annotation_rows,3083,HF train+test examples from repository metadata
+part2_missing_barcodes,0,Part 2 annotation rows
+part2_invalid_non_digit_barcodes,0,Part 2 annotation rows
+part2_valid_barcode_rows,3083,Part 2 annotation rows
+part2_unique_valid_products,3083,unique trimmed digit-only barcodes
+part2_duplicate_valid_barcode_rows,0,valid Part 2 barcode rows beyond first occurrence
+unique_product_overlap,0,unique IDs in both datasets
+overlap_percent_of_part1_unique,0.0,Part 1 unique valid products (%)
+overlap_percent_of_part2_unique,0.0,Part 2 unique valid products (%)
+overlapping_part2_annotation_rows,0,Part 2 annotation rows with an overlapping barcode
+overlapping_annotation_rows_with_any_part1_image_url_match,0,overlapping Part 2 annotation rows; exact URL string match
+overlapping_annotation_rows_with_part1_nutrition_url_match,0,overlapping Part 2 annotation rows; exact URL string match
+part1_rows_with_nutrition_image_url,8803,Part 1 rows
+overlapping_part1_products_with_nutrition_image_url,0,overlapping unique products
+overlapping_products_with_exact_any_image_url_match,0,overlapping unique products
+overlapping_products_with_exact_nutrition_image_url_match,0,overlapping unique products
+part2_train_examples,2884,HF repository metadata
+part2_test_examples,199,HF repository metadata

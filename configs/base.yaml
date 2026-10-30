@@ -1,0 +1,59 @@
+data:
+  source_export: data/openfoodfacts_eda_enriched.csv
+  annotation_manifest: data/annotations.jsonl
+  splits_dir: data/splits
+  train_manifest: data/splits/train.jsonl
+  validation_manifest: data/splits/validation.jsonl
+  test_manifest: data/splits/test.jsonl
+  image_root: .
+  max_length: 512
+
+split:
+  group_key: product_id
+  train_fraction: 0.80
+  validation_fraction: 0.10
+  test_fraction: 0.10
+  seed: 42
+
+model:
+  pretrained_name: microsoft/layoutlmv3-base
+  output_dir: artifacts/model
+  labels:
+    - O
+    - B-NUTRIENT
+    - I-NUTRIENT
+    - B-VALUE
+    - I-VALUE
+    - B-UNIT
+    - I-UNIT
+    - B-SERVING
+    - I-SERVING
+
+training:
+  epochs: 3
+  batch_size: 2
+  learning_rate: 0.00002
+  weight_decay: 0.01
+  num_workers: 0
+  device: auto
+  seed: 42
+
+inference:
+  confidence_threshold: 0.70
+  tesseract_cmd: null
+
+ocr:
+  backend: easyocr
+  easyocr_languages: [fr]
+  allow_model_downloads: false
+  model_storage_directory: models/easyocr
+  tesseract_cmd: null
+  tesseract_language: eng
+  paddle_language: en
+  max_image_side: 2000
+  confidence_threshold: 0.70
+
+eda:
+  image_audit_limit: 10
+  random_seed: 42
+  acquisition_rows: 50000

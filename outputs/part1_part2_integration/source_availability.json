@@ -1,0 +1,73 @@
+{
+  "part1": {
+    "available": true,
+    "path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\full_off\\en.openfoodfacts.org.products.csv.gz",
+    "bytes": 1524849117,
+    "modified_ns": 1793340947863977100,
+    "completeness": "explicit source-provenance confirmation; full EOF scan still required"
+  },
+  "local_inventory": [
+    {
+      "path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\openfoodfacts_eda_enriched.csv",
+      "bytes": 27113821,
+      "known_sample": true,
+      "provenance": "source_url=https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv.gz\nrows=50000\ncolumns=44\n"
+    },
+    {
+      "path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\openfoodfacts_sample.csv",
+      "bytes": 23295826,
+      "known_sample": true,
+      "provenance": "source_url=https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv.gz\nrows=50000\ncolumns=140\n"
+    },
+    {
+      "path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\full_off\\en.openfoodfacts.org.products.csv.gz",
+      "bytes": 1524849117,
+      "known_sample": false,
+      "provenance": "not established; a file name/size does not prove completeness"
+    },
+    {
+      "path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part1_part2_integration_cache\\part2\\part2_annotations.parquet",
+      "bytes": 3304593,
+      "known_sample": false,
+      "provenance": "not established; a file name/size does not prove completeness"
+    },
+    {
+      "path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part1_part2_integration_cache\\part2\\part2_images.parquet",
+      "bytes": 1075878,
+      "known_sample": false,
+      "provenance": "not established; a file name/size does not prove completeness"
+    },
+    {
+      "path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\outputs\\dataset_overlap_summary.csv",
+      "bytes": 1662,
+      "known_sample": false,
+      "provenance": "not established; a file name/size does not prove completeness"
+    },
+    {
+      "path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\outputs\\overlapping_products.csv",
+      "bytes": 215,
+      "known_sample": false,
+      "provenance": "not established; a file name/size does not prove completeness"
+    },
+    {
+      "path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\outputs\\part1_part2_integration\\dataset_overlap_summary.csv",
+      "bytes": 907,
+      "known_sample": false,
+      "provenance": "not established; a file name/size does not prove completeness"
+    }
+  ],
+  "scan_scope": "project data/outputs and configured search roots; not a whole-machine search",
+  "sample_fallback_allowed": false,
+  "full_export_download_performed": true,
+  "acquisition": {
+    "source_url": "https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv.gz",
+    "expected_content_length": 1524849117,
+    "etag": "c528d873936bb42b864ca5d146871a46-291",
+    "source_last_modified": "Thu, 29 Oct 2026 09:18:24 GMT",
+    "source_version_id": "vBuPnZ65RNTNxC3aUsuuqFJ.rPwdFHEU",
+    "format": "gzip-compressed TSV",
+    "acquisition_method": "complete HTTP transfer, resumable partial file promoted only after curl success and exact Content-Length check",
+    "sampling": false,
+    "note": "This is acquisition intent/provenance, not a completion marker. Require final gzip file with expected byte length and successful full EOF gzip/TSV scan before reporting overlap."
+  }
+}

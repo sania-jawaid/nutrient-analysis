@@ -1,0 +1,142 @@
+{
+  "product_id": "241013128",
+  "source_image": "data/manual_samples/241013128_nutrition.jpg",
+  "source_image_url": "https://images.openfoodfacts.org/images/products/000/024/101/3128/nutrition_fr.10.400.jpg",
+  "fields": [
+    {
+      "nutrient": "energy",
+      "value": 992,
+      "unit": "kJ",
+      "basis": "100g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "energy",
+      "value": 237,
+      "unit": "kcal",
+      "basis": "100g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "fat",
+      "value": 9.5,
+      "unit": "g",
+      "basis": "100g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "saturated_fat",
+      "value": 4.2,
+      "unit": "g",
+      "basis": "100g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "carbohydrates",
+      "value": 32.0,
+      "unit": "g",
+      "basis": "100g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "sugars",
+      "value": 21.7,
+      "unit": "g",
+      "basis": "100g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "proteins",
+      "value": 4.6,
+      "unit": "g",
+      "basis": "100g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "salt",
+      "value": 0.36,
+      "unit": "g",
+      "basis": "100g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "energy",
+      "value": 893,
+      "unit": "kJ",
+      "basis": "serving_90g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "energy",
+      "value": 213,
+      "unit": "kcal",
+      "basis": "serving_90g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "fat",
+      "value": 8.6,
+      "unit": "g",
+      "basis": "serving_90g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "saturated_fat",
+      "value": 3.8,
+      "unit": "g",
+      "basis": "serving_90g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "carbohydrates",
+      "value": 28.8,
+      "unit": "g",
+      "basis": "serving_90g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "sugars",
+      "value": 19.5,
+      "unit": "g",
+      "basis": "serving_90g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "proteins",
+      "value": 4.1,
+      "unit": "g",
+      "basis": "serving_90g",
+      "raw_text": null,
+      "confidence": null
+    },
+    {
+      "nutrient": "salt",
+      "value": 0.32,
+      "unit": "g",
+      "basis": "serving_90g",
+      "raw_text": null,
+      "confidence": null
+    }
+  ],
+  "needs_review": true,
+  "warnings": [
+    "One visual manual transcription; word-level OCR boxes and BIO tags not annotated; do not treat as training corpus."
+  ],
+  "schema_version": "1.0",
+  "annotation_method": "manual_visual_transcription",
+  "reviewed_date": "2026-10-28"
+}

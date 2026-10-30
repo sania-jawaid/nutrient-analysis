@@ -1,0 +1,6187 @@
+{
+  "analysis_at_utc": "2026-10-29T13:57:37.280866+00:00",
+  "provenance": "Offline analysis of saved predictions; original inference timing remains historical, not newly measured.",
+  "source_bundle_sha256": "68adbc5d26f1b4c24652758349712aa1f96a99f1a006ab2732a7ca0134633473",
+  "sample_count": 20,
+  "sampling": {
+    "seed": 42,
+    "requested_images": 20,
+    "official_test_rows": 199,
+    "selected_source_indices": [
+      6,
+      7,
+      8,
+      22,
+      23,
+      26,
+      28,
+      35,
+      55,
+      57,
+      59,
+      62,
+      70,
+      108,
+      139,
+      151,
+      163,
+      173,
+      188,
+      189
+    ],
+    "failures": []
+  },
+  "field_summary": {
+    "true_positive": 174,
+    "false_positive": 5,
+    "false_negative": 13,
+    "predicted_fields": 179,
+    "gold_fields": 187,
+    "exact_value_matches": 174,
+    "comparable_value_fields": 178,
+    "gold_uncertain_spans": 24,
+    "predicted_uncertain_spans": 38,
+    "images": 20,
+    "field_precision": 0.9720670391061452,
+    "field_recall": 0.93048128342246,
+    "field_f1": 0.9508196721311476,
+    "exact_value_accuracy": 0.9775280898876404
+  },
+  "field_comparisons": [
+    {
+      "barcode": "3760027470152",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 2,
+      "false_positive": 3,
+      "false_negative": 7,
+      "predicted_fields": 5,
+      "gold_fields": 9,
+      "field_precision": 0.4,
+      "field_recall": 0.2222222222222222,
+      "field_f1": 0.2857142857142857,
+      "exact_value_matches": 2,
+      "comparable_value_fields": 5,
+      "exact_value_accuracy": 0.4,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 12.93,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 656.0,
+          "predicted_value": 656.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 2716.0,
+          "predicted_value": 2716.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 57.74,
+          "predicted_value": 14.92,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "value_or_qualifier_mismatch"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 8.23,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 14.92,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.8,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 7.49,
+          "predicted_value": 12.93,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "value_or_qualifier_mismatch"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 9.77,
+          "predicted_value": 7.49,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "value_or_qualifier_mismatch"
+        }
+      ],
+      "gold_uncertain_spans": 0,
+      "predicted_uncertain_spans": 6,
+      "precision": 0.4,
+      "recall": 0.2222222222222222,
+      "f1": 0.2857142857142857,
+      "exact_tuple_accuracy_over_gold": 0.2222222222222222,
+      "missing_gold_tuples": [
+        [
+          "carbohydrates",
+          "per_100g",
+          "g",
+          12.93,
+          null
+        ],
+        [
+          "fat",
+          "per_100g",
+          "g",
+          57.74,
+          null
+        ],
+        [
+          "fiber",
+          "per_100g",
+          "g",
+          8.23,
+          null
+        ],
+        [
+          "proteins",
+          "per_100g",
+          "g",
+          14.92,
+          null
+        ],
+        [
+          "salt",
+          "per_100g",
+          "g",
+          1.8,
+          null
+        ],
+        [
+          "saturated_fat",
+          "per_100g",
+          "g",
+          7.49,
+          null
+        ],
+        [
+          "sugars",
+          "per_100g",
+          "g",
+          9.77,
+          null
+        ]
+      ],
+      "unmatched_prediction_tuples": [
+        [
+          "fat",
+          "per_100g",
+          "g",
+          14.92,
+          null
+        ],
+        [
+          "saturated_fat",
+          "per_100g",
+          "g",
+          12.93,
+          null
+        ],
+        [
+          "sugars",
+          "per_100g",
+          "g",
+          7.49,
+          null
+        ]
+      ]
+    },
+    {
+      "barcode": "3576620008209",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 7,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 7,
+      "gold_fields": 7,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 7,
+      "comparable_value_fields": 7,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.1,
+          "predicted_value": 1.1,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 370.0,
+          "predicted_value": 370.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 1532.0,
+          "predicted_value": 1532.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 34.0,
+          "predicted_value": 34.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 15.0,
+          "predicted_value": 15.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.5,
+          "predicted_value": 1.5,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 13.0,
+          "predicted_value": 13.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 1,
+      "predicted_uncertain_spans": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "5400210432861",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 15,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 15,
+      "gold_fields": 15,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 15,
+      "comparable_value_fields": 15,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 365.0,
+          "predicted_value": 365.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 1512.0,
+          "predicted_value": 1512.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 30.0,
+          "predicted_value": 30.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 9.1,
+          "predicted_value": 9.1,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 23.0,
+          "predicted_value": 23.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 6.8,
+          "predicted_value": 6.8,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 2.1,
+          "predicted_value": 2.1,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.62,
+          "predicted_value": 0.62,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 21.0,
+          "predicted_value": 21.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 6.2,
+          "predicted_value": 6.2,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "serving_size",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 30.0,
+          "predicted_value": 30.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 4,
+      "predicted_uncertain_spans": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "8437013754477",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 8,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 8,
+      "gold_fields": 8,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 8,
+      "comparable_value_fields": 8,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.0,
+          "predicted_value": 1.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 215.0,
+          "predicted_value": 215.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 901.0,
+          "predicted_value": 901.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 10.0,
+          "predicted_value": 10.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 30.0,
+          "predicted_value": 30.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 5.5,
+          "predicted_value": 5.5,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 3.8,
+          "predicted_value": 3.8,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 0,
+      "predicted_uncertain_spans": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "8410573103169",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 19,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 19,
+      "gold_fields": 19,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 19,
+      "comparable_value_fields": 19,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 51.0,
+          "predicted_value": 51.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 15.0,
+          "predicted_value": 15.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 519.0,
+          "predicted_value": 519.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 2166.0,
+          "predicted_value": 2166.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kcal",
+          "reference_value": 156.0,
+          "predicted_value": 156.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kj",
+          "reference_value": 650.0,
+          "predicted_value": 650.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 31.0,
+          "predicted_value": 31.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 9.3,
+          "predicted_value": 9.3,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 4.8,
+          "predicted_value": 4.8,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 1.4,
+          "predicted_value": 1.4,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 6.8,
+          "predicted_value": 6.8,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 2.0,
+          "predicted_value": 2.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.9,
+          "predicted_value": 1.9,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.57,
+          "predicted_value": 0.57,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 3.3,
+          "predicted_value": 3.3,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 1.0,
+          "predicted_value": 1.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "serving_size",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 30.0,
+          "predicted_value": 30.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.5,
+          "predicted_value": 0.5,
+          "reference_qualifier": "<",
+          "predicted_qualifier": "<",
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.5,
+          "predicted_value": 0.5,
+          "reference_qualifier": "<",
+          "predicted_qualifier": "<",
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 0,
+      "predicted_uncertain_spans": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "8433329104128",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 5,
+      "gold_fields": 5,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 5,
+      "comparable_value_fields": 5,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.8,
+          "predicted_value": 0.8,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.82,
+          "predicted_value": 0.82,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.05,
+          "predicted_value": 0.05,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.8,
+          "predicted_value": 0.8,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 3,
+      "predicted_uncertain_spans": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "2968460002850",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 8,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 8,
+      "gold_fields": 8,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 8,
+      "comparable_value_fields": 8,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.3,
+          "predicted_value": 1.3,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 201.0,
+          "predicted_value": 201.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 838.0,
+          "predicted_value": 838.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 14.0,
+          "predicted_value": 14.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 17.5,
+          "predicted_value": 17.5,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.65,
+          "predicted_value": 1.65,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 6.14,
+          "predicted_value": 6.14,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.8,
+          "predicted_value": 0.8,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 0,
+      "predicted_uncertain_spans": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "4056489232124",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 8,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 8,
+      "gold_fields": 8,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 8,
+      "comparable_value_fields": 8,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 4.6,
+          "predicted_value": 4.6,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 188.0,
+          "predicted_value": 188.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 779.0,
+          "predicted_value": 779.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 13.3,
+          "predicted_value": 13.3,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 11.5,
+          "predicted_value": 11.5,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.85,
+          "predicted_value": 0.85,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 3.9,
+          "predicted_value": 3.9,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 4.6,
+          "predicted_value": 4.6,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 0,
+      "predicted_uncertain_spans": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "3383810002646",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 8,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 8,
+      "gold_fields": 8,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 8,
+      "comparable_value_fields": 8,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 9.2,
+          "predicted_value": 9.2,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 39.0,
+          "predicted_value": 39.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 165.0,
+          "predicted_value": 165.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.5,
+          "predicted_value": 0.5,
+          "reference_qualifier": "<",
+          "predicted_qualifier": "<",
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.5,
+          "predicted_value": 0.5,
+          "reference_qualifier": "<",
+          "predicted_qualifier": "<",
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.01,
+          "predicted_value": 0.01,
+          "reference_qualifier": "<",
+          "predicted_qualifier": "<",
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.1,
+          "predicted_value": 0.1,
+          "reference_qualifier": "<",
+          "predicted_qualifier": "<",
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 9.0,
+          "predicted_value": 9.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 0,
+      "predicted_uncertain_spans": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "3661945710026",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 7,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 7,
+      "gold_fields": 7,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 7,
+      "comparable_value_fields": 7,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 86.0,
+          "predicted_value": 86.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 351.0,
+          "predicted_value": 351.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 1491.0,
+          "predicted_value": 1491.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.05,
+          "predicted_value": 0.05,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 85.0,
+          "predicted_value": 85.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 1,
+      "predicted_uncertain_spans": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "6141437686062",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 6,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 6,
+      "gold_fields": 6,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 6,
+      "comparable_value_fields": 6,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 190.0,
+          "predicted_value": 190.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 749.0,
+          "predicted_value": 749.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 3.0,
+          "predicted_value": 3.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 2.0,
+          "predicted_value": 2.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.95,
+          "predicted_value": 0.95,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.0,
+          "predicted_value": 1.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 2,
+      "predicted_uncertain_spans": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "7622210645128",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 4,
+      "false_positive": 0,
+      "false_negative": 3,
+      "predicted_fields": 4,
+      "gold_fields": 7,
+      "field_precision": 1.0,
+      "field_recall": 0.5714285714285714,
+      "field_f1": 0.7272727272727273,
+      "exact_value_matches": 4,
+      "comparable_value_fields": 4,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 57.0,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 34.0,
+          "predicted_value": 34.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.9,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 4.6,
+          "predicted_value": 4.6,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.47,
+          "predicted_value": 0.47,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 19.0,
+          "predicted_value": 19.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 56.0,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        }
+      ],
+      "gold_uncertain_spans": 2,
+      "predicted_uncertain_spans": 6,
+      "precision": 1.0,
+      "recall": 0.5714285714285714,
+      "f1": 0.7272727272727273,
+      "exact_tuple_accuracy_over_gold": 0.5714285714285714,
+      "missing_gold_tuples": [
+        [
+          "carbohydrates",
+          "per_100g",
+          "g",
+          57.0,
+          null
+        ],
+        [
+          "fiber",
+          "per_100g",
+          "g",
+          0.9,
+          null
+        ],
+        [
+          "sugars",
+          "per_100g",
+          "g",
+          56.0,
+          null
+        ]
+      ],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "3456700230402",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 4,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 4,
+      "gold_fields": 4,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 4,
+      "comparable_value_fields": 4,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 6.9,
+          "predicted_value": 6.9,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 144.0,
+          "predicted_value": 144.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 0.599,
+          "predicted_value": 0.599,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 2.8,
+          "predicted_value": 2.8,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 3,
+      "predicted_uncertain_spans": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "5400141358339",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 8,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 8,
+      "gold_fields": 8,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 8,
+      "comparable_value_fields": 8,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 13.0,
+          "predicted_value": 13.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 92.0,
+          "predicted_value": 92.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 385.0,
+          "predicted_value": 385.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 3.1,
+          "predicted_value": 3.1,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 2.9,
+          "predicted_value": 2.9,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.1,
+          "predicted_value": 0.1,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 2.0,
+          "predicted_value": 2.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 1,
+      "predicted_uncertain_spans": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "4099100042832",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 9,
+      "false_positive": 1,
+      "false_negative": 1,
+      "predicted_fields": 10,
+      "gold_fields": 10,
+      "field_precision": 0.9,
+      "field_recall": 0.9,
+      "field_f1": 0.9,
+      "exact_value_matches": 9,
+      "comparable_value_fields": 10,
+      "exact_value_accuracy": 0.9,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "added_sugars",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 1.0,
+          "predicted_value": 1.0,
+          "reference_qualifier": "<",
+          "predicted_qualifier": null,
+          "status": "value_or_qualifier_mismatch"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 11.0,
+          "predicted_value": 11.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "cholesterol",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kcal",
+          "reference_value": 60.0,
+          "predicted_value": 60.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.5,
+          "predicted_value": 0.5,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 2.0,
+          "predicted_value": 2.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 4.0,
+          "predicted_value": 4.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "serving_size",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 26.0,
+          "predicted_value": 26.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.11,
+          "predicted_value": 0.11,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 1.0,
+          "predicted_value": 1.0,
+          "reference_qualifier": "<",
+          "predicted_qualifier": "<",
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 2,
+      "predicted_uncertain_spans": 3,
+      "precision": 0.9,
+      "recall": 0.9,
+      "f1": 0.9,
+      "exact_tuple_accuracy_over_gold": 0.9,
+      "missing_gold_tuples": [
+        [
+          "added_sugars",
+          "per_serving",
+          "g",
+          1.0,
+          "<"
+        ]
+      ],
+      "unmatched_prediction_tuples": [
+        [
+          "added_sugars",
+          "per_serving",
+          "g",
+          1.0,
+          null
+        ]
+      ]
+    },
+    {
+      "barcode": "7610818170104",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 17,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 17,
+      "gold_fields": 17,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 17,
+      "comparable_value_fields": 17,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 3.4,
+          "predicted_value": 3.4,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 4.3,
+          "predicted_value": 4.3,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 51.0,
+          "predicted_value": 51.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 218.0,
+          "predicted_value": 218.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kcal",
+          "reference_value": 64.0,
+          "predicted_value": 64.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kj",
+          "reference_value": 273.0,
+          "predicted_value": 273.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 9.4,
+          "predicted_value": 9.4,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 12.0,
+          "predicted_value": 12.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.09,
+          "predicted_value": 0.09,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.11,
+          "predicted_value": 0.11,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "serving_size",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 125.0,
+          "predicted_value": 125.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 3.3,
+          "predicted_value": 3.3,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 4.1,
+          "predicted_value": 4.1,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 2,
+      "predicted_uncertain_spans": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "4316268451086",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 8,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 8,
+      "gold_fields": 8,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 8,
+      "comparable_value_fields": 8,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 10.7,
+          "predicted_value": 10.7,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 48.0,
+          "predicted_value": 48.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 203.0,
+          "predicted_value": 203.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.1,
+          "predicted_value": 0.1,
+          "reference_qualifier": "<",
+          "predicted_qualifier": "<",
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.3,
+          "predicted_value": 0.3,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.01,
+          "predicted_value": 0.01,
+          "reference_qualifier": "<",
+          "predicted_qualifier": "<",
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.1,
+          "predicted_value": 0.1,
+          "reference_qualifier": "<",
+          "predicted_qualifier": "<",
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 10.7,
+          "predicted_value": 10.7,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 0,
+      "predicted_uncertain_spans": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "7613036278621",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 9,
+      "false_positive": 1,
+      "false_negative": 0,
+      "predicted_fields": 10,
+      "gold_fields": 9,
+      "field_precision": 0.9,
+      "field_recall": 1.0,
+      "field_f1": 0.9473684210526316,
+      "exact_value_matches": 9,
+      "comparable_value_fields": 9,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 26.1,
+          "predicted_value": 26.1,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 255.0,
+          "predicted_value": 255.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 1067.0,
+          "predicted_value": 1067.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kcal",
+          "reference_value": null,
+          "predicted_value": 255.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "unexpected_prediction"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 11.3,
+          "predicted_value": 11.3,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.7,
+          "predicted_value": 1.7,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 11.4,
+          "predicted_value": 11.4,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.7,
+          "predicted_value": 1.7,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 5.8,
+          "predicted_value": 5.8,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 2.6,
+          "predicted_value": 2.6,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 0,
+      "predicted_uncertain_spans": 0,
+      "precision": 0.9,
+      "recall": 1.0,
+      "f1": 0.9473684210526316,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": [
+        [
+          "energy",
+          "per_serving",
+          "kcal",
+          255.0,
+          null
+        ]
+      ]
+    },
+    {
+      "barcode": "3073781131925",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 15,
+      "false_positive": 0,
+      "false_negative": 2,
+      "predicted_fields": 15,
+      "gold_fields": 17,
+      "field_precision": 1.0,
+      "field_recall": 0.8823529411764706,
+      "field_f1": 0.9375,
+      "exact_value_matches": 15,
+      "comparable_value_fields": 15,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "calcium",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.55,
+          "predicted_value": 0.55,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "calcium",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.099,
+          "predicted_value": 0.099,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 2.0,
+          "predicted_value": 2.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.4,
+          "predicted_value": 0.4,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 305.0,
+          "predicted_value": 305.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 1260.0,
+          "predicted_value": 1260.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kcal",
+          "reference_value": 55.0,
+          "predicted_value": 55.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kj",
+          "reference_value": 227.0,
+          "predicted_value": 227.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 29.0,
+          "predicted_value": 29.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 5.2,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 1.4,
+          "predicted_value": 1.4,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.25,
+          "predicted_value": 0.25,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 19.4,
+          "predicted_value": 19.4,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 3.5,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "serving_size",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 18.0,
+          "predicted_value": 18.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 2.0,
+          "predicted_value": 2.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.4,
+          "predicted_value": 0.4,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 2,
+      "predicted_uncertain_spans": 4,
+      "precision": 1.0,
+      "recall": 0.8823529411764706,
+      "f1": 0.9375,
+      "exact_tuple_accuracy_over_gold": 0.8823529411764706,
+      "missing_gold_tuples": [
+        [
+          "fat",
+          "per_serving",
+          "g",
+          5.2,
+          null
+        ],
+        [
+          "saturated_fat",
+          "per_serving",
+          "g",
+          3.5,
+          null
+        ]
+      ],
+      "unmatched_prediction_tuples": []
+    },
+    {
+      "barcode": "3760264921042",
+      "reference_source": "decoded official aligned ner_tags (not independent visual transcription)",
+      "true_positive": 7,
+      "false_positive": 0,
+      "false_negative": 0,
+      "predicted_fields": 7,
+      "gold_fields": 7,
+      "field_precision": 1.0,
+      "field_recall": 1.0,
+      "field_f1": 1.0,
+      "exact_value_matches": 7,
+      "comparable_value_fields": 7,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 57.0,
+          "predicted_value": 57.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 236.0,
+          "predicted_value": 236.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 1003.0,
+          "predicted_value": 1003.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.6,
+          "predicted_value": 0.6,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.0,
+          "predicted_value": 0.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 56.0,
+          "predicted_value": 56.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        }
+      ],
+      "gold_uncertain_spans": 1,
+      "predicted_uncertain_spans": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "exact_tuple_accuracy_over_gold": 1.0,
+      "missing_gold_tuples": [],
+      "unmatched_prediction_tuples": []
+    }
+  ],
+  "parser_and_coverage_diagnostics": {
+    "category_counts": {
+      "unit_or_numeric_parsing": 32,
+      "duplicate_prediction": 8
+    },
+    "reason_counts": {
+      "unit_missing_or_not_read": 8,
+      "no_numeric_value": 9,
+      "duplicate_field_conflicting_values": 8,
+      "unparsed_letters_near_numeric_value": 8,
+      "multiple_numeric_values_in_one_BIO_span": 7
+    },
+    "examples": [
+      {
+        "barcode": "3760027470152",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unit_missing_or_not_read",
+        "raw_text": "8,23",
+        "label": "PROTEINS_100G",
+        "start": 90,
+        "end": 91,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3760027470152",
+        "category": "unit_or_numeric_parsing",
+        "reason": "no_numeric_value",
+        "raw_text": "g",
+        "label": "FIBER_100G",
+        "start": 91,
+        "end": 92,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3760027470152",
+        "category": "duplicate_prediction",
+        "reason": "duplicate_field_conflicting_values",
+        "raw_text": "9,77  g",
+        "label": "CARBOHYDRATES_100G",
+        "start": 84,
+        "end": 86,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3760027470152",
+        "category": "duplicate_prediction",
+        "reason": "duplicate_field_conflicting_values",
+        "raw_text": "57,74  g",
+        "label": "CARBOHYDRATES_100G",
+        "start": 86,
+        "end": 88,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3760027470152",
+        "category": "duplicate_prediction",
+        "reason": "duplicate_field_conflicting_values",
+        "raw_text": "1,80  g",
+        "label": "SALT_100G",
+        "start": 92,
+        "end": 94,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3760027470152",
+        "category": "duplicate_prediction",
+        "reason": "duplicate_field_conflicting_values",
+        "raw_text": "120  g",
+        "label": "SALT_100G",
+        "start": 94,
+        "end": 96,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3576620008209",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unparsed_letters_near_numeric_value",
+        "raw_text": "sucres:0.9  g;",
+        "label": "SUGARS_100G",
+        "start": 70,
+        "end": 72,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "5400210432861",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unparsed_letters_near_numeric_value",
+        "raw_text": "(454  k)",
+        "label": "ENERGY_KJ_SERVING",
+        "start": 28,
+        "end": 30,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "5400210432861",
+        "category": "unit_or_numeric_parsing",
+        "reason": "multiple_numeric_values_in_one_BIO_span",
+        "raw_text": "/109  kcal-5",
+        "label": "ENERGY_KCAL_SERVING",
+        "start": 30,
+        "end": 32,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "5400210432861",
+        "category": "unit_or_numeric_parsing",
+        "reason": "multiple_numeric_values_in_one_BIO_span",
+        "raw_text": "(0  g-0",
+        "label": "CARBOHYDRATES_SERVING",
+        "start": 65,
+        "end": 67,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "5400210432861",
+        "category": "unit_or_numeric_parsing",
+        "reason": "multiple_numeric_values_in_one_BIO_span",
+        "raw_text": "(0g-0%)",
+        "label": "SUGARS_SERVING",
+        "start": 76,
+        "end": 77,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "8433329104128",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unparsed_letters_near_numeric_value",
+        "raw_text": "Energy.3048  kJ",
+        "label": "ENERGY_KJ_100G",
+        "start": 13,
+        "end": 15,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "8433329104128",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unparsed_letters_near_numeric_value",
+        "raw_text": "/741  kcat",
+        "label": "ENERGY_KCAL_100G",
+        "start": 15,
+        "end": 17,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "8433329104128",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unit_missing_or_not_read",
+        "raw_text": ".56",
+        "label": "SATURATED_FAT_100G",
+        "start": 27,
+        "end": 28,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "8433329104128",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unit_missing_or_not_read",
+        "raw_text": "600  pg",
+        "label": "CALCIUM_100G",
+        "start": 54,
+        "end": 56,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "8433329104128",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unparsed_letters_near_numeric_value",
+        "raw_text": "600  pg",
+        "label": "CALCIUM_100G",
+        "start": 54,
+        "end": 56,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3661945710026",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unit_missing_or_not_read",
+        "raw_text": "0.29",
+        "label": "PROTEINS_100G",
+        "start": 51,
+        "end": 52,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "6141437686062",
+        "category": "unit_or_numeric_parsing",
+        "reason": "no_numeric_value",
+        "raw_text": "Og",
+        "label": "SATURATED_FAT_100G",
+        "start": 21,
+        "end": 22,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "6141437686062",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unit_missing_or_not_read",
+        "raw_text": "39а",
+        "label": "CARBOHYDRATES_100G",
+        "start": 22,
+        "end": 23,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "7622210645128",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unit_missing_or_not_read",
+        "raw_text": "0,9",
+        "label": "SUGARS_100G",
+        "start": 6,
+        "end": 7,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "7622210645128",
+        "category": "unit_or_numeric_parsing",
+        "reason": "no_numeric_value",
+        "raw_text": "g/",
+        "label": "FIBER_100G",
+        "start": 7,
+        "end": 8,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "7622210645128",
+        "category": "unit_or_numeric_parsing",
+        "reason": "multiple_numeric_values_in_one_BIO_span",
+        "raw_text": "2304  kJ/J4",
+        "label": "ENERGY_KJ_100G",
+        "start": 23,
+        "end": 25,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "7622210645128",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unparsed_letters_near_numeric_value",
+        "raw_text": "552  kcal/sd",
+        "label": "ENERGY_KCAL_100G",
+        "start": 25,
+        "end": 27,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "7622210645128",
+        "category": "duplicate_prediction",
+        "reason": "duplicate_field_conflicting_values",
+        "raw_text": "56g/",
+        "label": "CARBOHYDRATES_100G",
+        "start": 5,
+        "end": 6,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "7622210645128",
+        "category": "duplicate_prediction",
+        "reason": "duplicate_field_conflicting_values",
+        "raw_text": "57  g/",
+        "label": "CARBOHYDRATES_100G",
+        "start": 30,
+        "end": 32,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3456700230402",
+        "category": "unit_or_numeric_parsing",
+        "reason": "multiple_numeric_values_in_one_BIO_span",
+        "raw_text": "...8,9  g",
+        "label": "FAT_100G",
+        "start": 14,
+        "end": 16,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3456700230402",
+        "category": "unit_or_numeric_parsing",
+        "reason": "multiple_numeric_values_in_one_BIO_span",
+        "raw_text": ".8,0  g",
+        "label": "PROTEINS_100G",
+        "start": 36,
+        "end": 38,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3456700230402",
+        "category": "unit_or_numeric_parsing",
+        "reason": "multiple_numeric_values_in_one_BIO_span",
+        "raw_text": ".0.82g",
+        "label": "SALT_100G",
+        "start": 41,
+        "end": 42,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "5400141358339",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unparsed_letters_near_numeric_value",
+        "raw_text": "13  g/Vezels",
+        "label": "SUGARS_100G",
+        "start": 108,
+        "end": 110,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "4099100042832",
+        "category": "unit_or_numeric_parsing",
+        "reason": "no_numeric_value",
+        "raw_text": "Og",
+        "label": "SATURATED_FAT_SERVING",
+        "start": 41,
+        "end": 42,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "4099100042832",
+        "category": "unit_or_numeric_parsing",
+        "reason": "no_numeric_value",
+        "raw_text": "Og",
+        "label": "TRANS_FAT_SERVING",
+        "start": 44,
+        "end": 45,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "4099100042832",
+        "category": "unit_or_numeric_parsing",
+        "reason": "no_numeric_value",
+        "raw_text": "<",
+        "label": "ADDED_SUGARS_SERVING",
+        "start": 78,
+        "end": 79,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "7610818170104",
+        "category": "unit_or_numeric_parsing",
+        "reason": "no_numeric_value",
+        "raw_text": "Og",
+        "label": "FAT_SERVING",
+        "start": 38,
+        "end": 39,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "7610818170104",
+        "category": "unit_or_numeric_parsing",
+        "reason": "no_numeric_value",
+        "raw_text": "Og",
+        "label": "SATURATED_FAT_SERVING",
+        "start": 40,
+        "end": 41,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3073781131925",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unit_missing_or_not_read",
+        "raw_text": "99",
+        "label": "PROTEINS_100G",
+        "start": 39,
+        "end": 40,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3073781131925",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unit_missing_or_not_read",
+        "raw_text": "1,6q",
+        "label": "PROTEINS_SERVING",
+        "start": 71,
+        "end": 72,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3073781131925",
+        "category": "unit_or_numeric_parsing",
+        "reason": "unparsed_letters_near_numeric_value",
+        "raw_text": "1,6q",
+        "label": "PROTEINS_SERVING",
+        "start": 71,
+        "end": 72,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3073781131925",
+        "category": "duplicate_prediction",
+        "reason": "duplicate_field_conflicting_values",
+        "raw_text": "5,2  g",
+        "label": "SATURATED_FAT_SERVING",
+        "start": 59,
+        "end": 61,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3073781131925",
+        "category": "duplicate_prediction",
+        "reason": "duplicate_field_conflicting_values",
+        "raw_text": "3,5  g",
+        "label": "SATURATED_FAT_SERVING",
+        "start": 62,
+        "end": 64,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      },
+      {
+        "barcode": "3760264921042",
+        "category": "unit_or_numeric_parsing",
+        "reason": "no_numeric_value",
+        "raw_text": "Og)",
+        "label": "SATURATED_FAT_100G",
+        "start": 55,
+        "end": 56,
+        "evidence": "predicted span parser diagnostic, not independently confirmed OCR error"
+      }
+    ],
+    "coverage_by_image": [
+      {
+        "barcode": "3760027470152",
+        "source_index": 6,
+        "tokens": 110,
+        "covered": 110,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "3576620008209",
+        "source_index": 7,
+        "tokens": 88,
+        "covered": 88,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "5400210432861",
+        "source_index": 8,
+        "tokens": 133,
+        "covered": 133,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "8437013754477",
+        "source_index": 22,
+        "tokens": 45,
+        "covered": 45,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "8410573103169",
+        "source_index": 23,
+        "tokens": 135,
+        "covered": 135,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "8433329104128",
+        "source_index": 26,
+        "tokens": 75,
+        "covered": 75,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "2968460002850",
+        "source_index": 28,
+        "tokens": 34,
+        "covered": 34,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "4056489232124",
+        "source_index": 35,
+        "tokens": 36,
+        "covered": 36,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "3383810002646",
+        "source_index": 55,
+        "tokens": 33,
+        "covered": 33,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "3661945710026",
+        "source_index": 57,
+        "tokens": 56,
+        "covered": 56,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "6141437686062",
+        "source_index": 59,
+        "tokens": 27,
+        "covered": 27,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "7622210645128",
+        "source_index": 62,
+        "tokens": 56,
+        "covered": 56,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "3456700230402",
+        "source_index": 70,
+        "tokens": 44,
+        "covered": 44,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "5400141358339",
+        "source_index": 108,
+        "tokens": 163,
+        "covered": 163,
+        "windows": 3,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "4099100042832",
+        "source_index": 139,
+        "tokens": 101,
+        "covered": 101,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "7610818170104",
+        "source_index": 151,
+        "tokens": 99,
+        "covered": 99,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "4316268451086",
+        "source_index": 163,
+        "tokens": 70,
+        "covered": 70,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "7613036278621",
+        "source_index": 173,
+        "tokens": 91,
+        "covered": 91,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "3073781131925",
+        "source_index": 188,
+        "tokens": 86,
+        "covered": 86,
+        "windows": 1,
+        "uncovered_positions": []
+      },
+      {
+        "barcode": "3760264921042",
+        "source_index": 189,
+        "tokens": 69,
+        "covered": 69,
+        "windows": 1,
+        "uncovered_positions": []
+      }
+    ]
+  },
+  "bio_error_examples": [
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 80,
+      "ocr_token": "14,92 ",
+      "gold_label": "B-PROTEINS_100G",
+      "predicted_label": "B-FAT_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "656  Kcal\n 2716  KJ\n 14,92  g\n 12,93  g\n 9,77 ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 81,
+      "ocr_token": "g\n",
+      "gold_label": "I-PROTEINS_100G",
+      "predicted_label": "I-FAT_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "Kcal\n 2716  KJ\n 14,92  g\n 12,93  g\n 9,77  g\n",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 82,
+      "ocr_token": "12,93 ",
+      "gold_label": "B-CARBOHYDRATES_100G",
+      "predicted_label": "B-SATURATED_FAT_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "2716  KJ\n 14,92  g\n 12,93  g\n 9,77  g\n 57,74 ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 83,
+      "ocr_token": "g\n",
+      "gold_label": "I-CARBOHYDRATES_100G",
+      "predicted_label": "I-SATURATED_FAT_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "KJ\n 14,92  g\n 12,93  g\n 9,77  g\n 57,74  g\n",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 84,
+      "ocr_token": "9,77 ",
+      "gold_label": "B-SUGARS_100G",
+      "predicted_label": "B-CARBOHYDRATES_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "14,92  g\n 12,93  g\n 9,77  g\n 57,74  g\n 7,49 ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 85,
+      "ocr_token": "g\n",
+      "gold_label": "I-SUGARS_100G",
+      "predicted_label": "I-CARBOHYDRATES_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "g\n 12,93  g\n 9,77  g\n 57,74  g\n 7,49  g\n",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 86,
+      "ocr_token": "57,74 ",
+      "gold_label": "B-FAT_100G",
+      "predicted_label": "B-CARBOHYDRATES_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "12,93  g\n 9,77  g\n 57,74  g\n 7,49  g\n 8,23 ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 87,
+      "ocr_token": "g\n",
+      "gold_label": "I-FAT_100G",
+      "predicted_label": "I-CARBOHYDRATES_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "g\n 9,77  g\n 57,74  g\n 7,49  g\n 8,23  g\n",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 88,
+      "ocr_token": "7,49 ",
+      "gold_label": "B-SATURATED_FAT_100G",
+      "predicted_label": "B-SUGARS_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "9,77  g\n 57,74  g\n 7,49  g\n 8,23  g\n 1,80 ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 89,
+      "ocr_token": "g\n",
+      "gold_label": "I-SATURATED_FAT_100G",
+      "predicted_label": "I-SUGARS_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "g\n 57,74  g\n 7,49  g\n 8,23  g\n 1,80  g\n",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 90,
+      "ocr_token": "8,23 ",
+      "gold_label": "B-FIBER_100G",
+      "predicted_label": "B-PROTEINS_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "57,74  g\n 7,49  g\n 8,23  g\n 1,80  g\n 120 ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 94,
+      "ocr_token": "120 ",
+      "gold_label": "O",
+      "predicted_label": "B-SALT_100G",
+      "error_type": "false_positive_entity",
+      "context": "8,23  g\n 1,80  g\n 120  g\n 3  760027  470152\n",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3760027470152",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\f324c7bad6d7fa6c9130ea160764ff7a4a7e79005e26fe3dcbab1d4efe8a7425.jpg",
+      "token_index": 95,
+      "ocr_token": "g\n",
+      "gold_label": "O",
+      "predicted_label": "I-SALT_100G",
+      "error_type": "false_positive_entity",
+      "context": "g\n 1,80  g\n 120  g\n 3  760027  470152\n A ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "8433329104128",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\d12a7f18e2dc6be716751303c624919908e197f4101b230ddd23eb2382790896.jpg",
+      "token_index": 54,
+      "ocr_token": "600 ",
+      "gold_label": "O",
+      "predicted_label": "B-CALCIUM_100G",
+      "error_type": "false_positive_entity",
+      "context": "0  g  0,05  g  600  pg  (75  %*)\n *Valores ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "8433329104128",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\d12a7f18e2dc6be716751303c624919908e197f4101b230ddd23eb2382790896.jpg",
+      "token_index": 55,
+      "ocr_token": "pg ",
+      "gold_label": "O",
+      "predicted_label": "I-CALCIUM_100G",
+      "error_type": "false_positive_entity",
+      "context": "g  0,05  g  600  pg  (75  %*)\n *Valores  de ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "7622210645128",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\2bc26a5ee4dd34940ca95816accddbb04a108ed890ce5e081788d7be6bae3594.jpg",
+      "token_index": 5,
+      "ocr_token": "56g/ ",
+      "gold_label": "B-SUGARS_100G",
+      "predicted_label": "B-CARBOHYDRATES_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "g'inda/\n per  100  g  56g/  0,9  g/  4,6g/  0,47 ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "7622210645128",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\2bc26a5ee4dd34940ca95816accddbb04a108ed890ce5e081788d7be6bae3594.jpg",
+      "token_index": 6,
+      "ocr_token": "0,9 ",
+      "gold_label": "B-FIBER_100G",
+      "predicted_label": "B-SUGARS_100G",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "per  100  g  56g/  0,9  g/  4,6g/  0,47  g/\n",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "4099100042832",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\47e77c0e3dc820530b17543bbaedb74c39d2cfcb39dea68d7d477734b6a17c48.jpg",
+      "token_index": 79,
+      "ocr_token": "1g ",
+      "gold_label": "I-ADDED_SUGARS_SERVING",
+      "predicted_label": "B-ADDED_SUGARS_SERVING",
+      "error_type": "bio_boundary_mismatch",
+      "context": "< 1g\n Includes  < 1g  Added  Sugars  1 %\n",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "7613036278621",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\94f26ec94ecafbeb76f7db1644a2433a1f926685cfeb8f30888bc7fe1782326a.jpg",
+      "token_index": 10,
+      "ocr_token": "255 ",
+      "gold_label": "O",
+      "predicted_label": "B-ENERGY_KCAL_SERVING",
+      "error_type": "false_positive_entity",
+      "context": ")\n Energie\n 1067  kJ\n 255  kcal\n 13 %\n accord ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "7613036278621",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\94f26ec94ecafbeb76f7db1644a2433a1f926685cfeb8f30888bc7fe1782326a.jpg",
+      "token_index": 11,
+      "ocr_token": "kcal\n",
+      "gold_label": "O",
+      "predicted_label": "I-ENERGY_KCAL_SERVING",
+      "error_type": "false_positive_entity",
+      "context": "Energie\n 1067  kJ\n 255  kcal\n 13 %\n accord  avec ",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3073781131925",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\bd90c67f2b2d2287729e7e9a2fd51881f42c0cf02c102f313c3e0ee8cbfb4a06.jpg",
+      "token_index": 59,
+      "ocr_token": "5,2 ",
+      "gold_label": "B-FAT_SERVING",
+      "predicted_label": "B-SATURATED_FAT_SERVING",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "kJ - 55  kcal\n 5,2  g  ( 3,5  g",
+      "ocr_text_independently_verified": false
+    },
+    {
+      "barcode": "3073781131925",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\part2_cache\\images\\bd90c67f2b2d2287729e7e9a2fd51881f42c0cf02c102f313c3e0ee8cbfb4a06.jpg",
+      "token_index": 60,
+      "ocr_token": "g ",
+      "gold_label": "I-FAT_SERVING",
+      "predicted_label": "I-SATURATED_FAT_SERVING",
+      "error_type": "wrong_entity_or_basis_label",
+      "context": "- 55  kcal\n 5,2  g  ( 3,5  g )\n",
+      "ocr_text_independently_verified": false
+    }
+  ],
+  "separate_api_metadata_not_visual_gold": [
+    {
+      "barcode": "3760027470152",
+      "from_cache": true,
+      "reference_source": "Open Food Facts product API",
+      "reference_is_visual_gold": false,
+      "product_name": "Crac Noisettes",
+      "api_reference_fields_available": 10,
+      "model_fields_with_compatible_api_reference": 5,
+      "exact_value_count": 1,
+      "exact_value_accuracy": 0.2,
+      "field_tuple_precision": 0.2,
+      "field_tuple_recall": 0.1,
+      "field_tuple_f1": 0.13333333333333333,
+      "field_tuple_metric_note": "Exact nutrient+basis+unit+value tuple against currently available Open Food Facts product nutriments; this API metadata is not image-verified truth.",
+      "comparisons": [
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 14.92,
+          "off_value": 57.74,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "14,92  g"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 12.93,
+          "off_value": 7.49,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "12,93  g"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 12.93,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 7.49,
+          "off_value": 9.77,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "7,49  g"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 8.23,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 14.92,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 1.8,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.72,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "prediction": 2716.0,
+          "off_value": 2675.67,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "2716  KJ"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "prediction": 656.0,
+          "off_value": 656.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "656  Kcal"
+        }
+      ]
+    },
+    {
+      "barcode": "3576620008209",
+      "from_cache": true,
+      "reference_source": "Open Food Facts product API",
+      "reference_is_visual_gold": false,
+      "product_name": "Pâte de campagne",
+      "api_reference_fields_available": 11,
+      "model_fields_with_compatible_api_reference": 7,
+      "exact_value_count": 6,
+      "exact_value_accuracy": 0.8571428571428571,
+      "field_tuple_precision": 0.8571428571428571,
+      "field_tuple_recall": 0.5454545454545454,
+      "field_tuple_f1": 0.6666666666666665,
+      "field_tuple_metric_note": "Exact nutrient+basis+unit+value tuple against currently available Open Food Facts product nutriments; this API metadata is not image-verified truth.",
+      "comparisons": [
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 34.0,
+          "off_value": 34.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "34  g;"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 13.0,
+          "off_value": 13.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "13  g;"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 1.1,
+          "off_value": 1.1,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "1,1  g;"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.9,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "fiber",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.0,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 15.0,
+          "off_value": 15.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "15  g;"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 1.5,
+          "off_value": 1.5,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "1.5  g"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.6,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "added_sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.0,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "prediction": 1532.0,
+          "off_value": 1531.7,
+          "exact_value_match": false,
+          "within_tolerance": true,
+          "status": "value_mismatch",
+          "model_span": "1532  kJ"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "prediction": 370.0,
+          "off_value": 370.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "(370  kcal)"
+        }
+      ]
+    },
+    {
+      "barcode": "5400210432861",
+      "from_cache": true,
+      "reference_source": "Open Food Facts product API",
+      "reference_is_visual_gold": false,
+      "product_name": "Apero gouda jeune",
+      "api_reference_fields_available": 9,
+      "model_fields_with_compatible_api_reference": 8,
+      "exact_value_count": 7,
+      "exact_value_accuracy": 0.875,
+      "field_tuple_precision": 0.875,
+      "field_tuple_recall": 0.7777777777777778,
+      "field_tuple_f1": 0.823529411764706,
+      "field_tuple_metric_note": "Exact nutrient+basis+unit+value tuple against currently available Open Food Facts product nutriments; this API metadata is not image-verified truth.",
+      "comparisons": [
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 30.0,
+          "off_value": 30.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "30  g"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 21.0,
+          "off_value": 21.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "21  g"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.0,
+          "off_value": 0.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0  g"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.0,
+          "off_value": 0.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0  g"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 23.0,
+          "off_value": 23.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "23  g"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 2.1,
+          "off_value": 2.1,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "2,1g"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.84,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "prediction": 1512.0,
+          "off_value": 1501.0,
+          "exact_value_match": false,
+          "within_tolerance": true,
+          "status": "value_mismatch",
+          "model_span": "1512  kJ"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "prediction": 365.0,
+          "off_value": 365.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "365  kcal"
+        }
+      ]
+    },
+    {
+      "barcode": "8437013754477",
+      "from_cache": true,
+      "reference_source": "Open Food Facts product API",
+      "reference_is_visual_gold": false,
+      "product_name": "Jamón serrano",
+      "api_reference_fields_available": 9,
+      "model_fields_with_compatible_api_reference": 8,
+      "exact_value_count": 6,
+      "exact_value_accuracy": 0.75,
+      "field_tuple_precision": 0.75,
+      "field_tuple_recall": 0.6666666666666666,
+      "field_tuple_f1": 0.7058823529411765,
+      "field_tuple_metric_note": "Exact nutrient+basis+unit+value tuple against currently available Open Food Facts product nutriments; this API metadata is not image-verified truth.",
+      "comparisons": [
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 10.0,
+          "off_value": 10.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "10g"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 3.8,
+          "off_value": 3.7999999523163,
+          "exact_value_match": false,
+          "within_tolerance": true,
+          "status": "value_mismatch",
+          "model_span": "3,8  g"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 1.0,
+          "off_value": 1.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "1g"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.0,
+          "off_value": 0.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0g"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 30.0,
+          "off_value": 30.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "30  g"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 5.5,
+          "off_value": 5.5,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "5,5  g"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 2.2,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "prediction": 901.0,
+          "off_value": 897.0,
+          "exact_value_match": false,
+          "within_tolerance": true,
+          "status": "value_mismatch",
+          "model_span": "901  kJ"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "prediction": 215.0,
+          "off_value": 215.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "215  kcal"
+        }
+      ]
+    },
+    {
+      "barcode": "8410573103169",
+      "from_cache": true,
+      "reference_source": "Open Food Facts product API",
+      "reference_is_visual_gold": false,
+      "product_name": "Patatas fritas sabor a jamón iberico",
+      "api_reference_fields_available": 9,
+      "model_fields_with_compatible_api_reference": 8,
+      "exact_value_count": 6,
+      "exact_value_accuracy": 0.75,
+      "field_tuple_precision": 0.75,
+      "field_tuple_recall": 0.6666666666666666,
+      "field_tuple_f1": 0.7058823529411765,
+      "field_tuple_metric_note": "Exact nutrient+basis+unit+value tuple against currently available Open Food Facts product nutriments; this API metadata is not image-verified truth.",
+      "comparisons": [
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 31.0,
+          "off_value": 31.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "31  g"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 3.3,
+          "off_value": 3.3,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "3,3  g"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 51.0,
+          "off_value": 51.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "51  g"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.5,
+          "off_value": 0.5,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "<0,5  g"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 6.8,
+          "off_value": 6.8,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "6,8  g"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 1.9,
+          "off_value": 1.9,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "1,9  g"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.76,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "prediction": 2166.0,
+          "off_value": 2129.6,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "2166  kJ"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "prediction": 519.0,
+          "off_value": 519.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "519  kcal"
+        }
+      ]
+    },
+    {
+      "barcode": "8433329104128",
+      "from_cache": true,
+      "reference_source": "Open Food Facts product API",
+      "reference_is_visual_gold": false,
+      "product_name": "Mantequilla sin sal",
+      "api_reference_fields_available": 9,
+      "model_fields_with_compatible_api_reference": 5,
+      "exact_value_count": 4,
+      "exact_value_accuracy": 0.8,
+      "field_tuple_precision": 0.8,
+      "field_tuple_recall": 0.4444444444444444,
+      "field_tuple_f1": 0.5714285714285714,
+      "field_tuple_metric_note": "Exact nutrient+basis+unit+value tuple against currently available Open Food Facts product nutriments; this API metadata is not image-verified truth.",
+      "comparisons": [
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.82,
+          "off_value": 82.0,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": ".82  g"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 56.0,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.8,
+          "off_value": 0.8,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0,8g"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.8,
+          "off_value": 0.8,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0,8g"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.0,
+          "off_value": 0.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0  g"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.05,
+          "off_value": 0.05,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0,05  g"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.02,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "prediction": null,
+          "off_value": 3047.6,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "prediction": null,
+          "off_value": 741.0,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        }
+      ]
+    },
+    {
+      "barcode": "2968460002850",
+      "from_cache": true,
+      "reference_source": "Open Food Facts product API",
+      "reference_is_visual_gold": false,
+      "product_name": "Hamburguesa de vacuno y cerdo",
+      "api_reference_fields_available": 9,
+      "model_fields_with_compatible_api_reference": 8,
+      "exact_value_count": 3,
+      "exact_value_accuracy": 0.375,
+      "field_tuple_precision": 0.375,
+      "field_tuple_recall": 0.3333333333333333,
+      "field_tuple_f1": 0.35294117647058826,
+      "field_tuple_metric_note": "Exact nutrient+basis+unit+value tuple against currently available Open Food Facts product nutriments; this API metadata is not image-verified truth.",
+      "comparisons": [
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 14.0,
+          "off_value": 14.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "14  g"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 6.14,
+          "off_value": 6.1399998664856,
+          "exact_value_match": false,
+          "within_tolerance": true,
+          "status": "value_mismatch",
+          "model_span": "6,14  g"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 1.3,
+          "off_value": 1.2999999523163,
+          "exact_value_match": false,
+          "within_tolerance": true,
+          "status": "value_mismatch",
+          "model_span": "1,3  g"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.8,
+          "off_value": 0.80000001192093,
+          "exact_value_match": false,
+          "within_tolerance": true,
+          "status": "value_mismatch",
+          "model_span": "0.8  g"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 17.5,
+          "off_value": 17.5,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "17.5  g"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 1.65,
+          "off_value": 1.6499999761581,
+          "exact_value_match": false,
+          "within_tolerance": true,
+          "status": "value_mismatch",
+          "model_span": "1,65  g"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.66,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "prediction": 838.0,
+          "off_value": 837.599999189377,
+          "exact_value_match": false,
+          "within_tolerance": true,
+          "status": "value_mismatch",
+          "model_span": "838KJ"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "prediction": 201.0,
+          "off_value": 201.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "201Kcal/"
+        }
+      ]
+    },
+    {
+      "barcode": "4056489232124",
+      "from_cache": true,
+      "reference_source": "Open Food Facts product API",
+      "reference_is_visual_gold": false,
+      "product_name": "Herring fillets",
+      "api_reference_fields_available": 20,
+      "model_fields_with_compatible_api_reference": 8,
+      "exact_value_count": 7,
+      "exact_value_accuracy": 0.875,
+      "field_tuple_precision": 0.875,
+      "field_tuple_recall": 0.35,
+      "field_tuple_f1": 0.4999999999999999,
+      "field_tuple_metric_note": "Exact nutrient+basis+unit+value tuple against currently available Open Food Facts product nutriments; this API metadata is not image-verified truth.",
+      "comparisons": [
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 13.3,
+          "off_value": 13.3,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "13,3  g"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 26.6,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 3.9,
+          "off_value": 3.9,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "3,9  g"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 7.8,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 4.6,
+          "off_value": 4.6,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "4,6  g"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_serving",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 9.2,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 4.6,
+          "off_value": 4.6,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "4,6  g"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_serving",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 9.2,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 11.5,
+          "off_value": 11.5,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "11,5  g"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_serving",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 23.0,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.85,
+          "off_value": 0.85,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0,85  g"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_serving",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 1.7,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.34,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_serving",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.68,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "added_sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 1.75,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "added_sugars",
+          "basis": "per_serving",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 3.5,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "prediction": 779.0,
+          "off_value": 765.8,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "779"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "prediction": 188.0,
+          "off_value": 188.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "kJ/188  kcal"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kj",
+          "prediction": null,
+          "off_value": 1530.0,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kcal",
+          "prediction": null,
+          "off_value": 376.0,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        }
+      ]
+    },
+    {
+      "barcode": "3383810002646",
+      "from_cache": true,
+      "reference_source": "Open Food Facts product API",
+      "reference_is_visual_gold": false,
+      "product_name": "Nectar multifruits",
+      "api_reference_fields_available": 7,
+      "model_fields_with_compatible_api_reference": 7,
+      "exact_value_count": 2,
+      "exact_value_accuracy": 0.2857142857142857,
+      "field_tuple_precision": 0.2857142857142857,
+      "field_tuple_recall": 0.2857142857142857,
+      "field_tuple_f1": 0.2857142857142857,
+      "field_tuple_metric_note": "Exact nutrient+basis+unit+value tuple against currently available Open Food Facts product nutriments; this API metadata is not image-verified truth.",
+      "comparisons": [
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.5,
+          "off_value": 0.5,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "<  0,5  g"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.1,
+          "off_value": 0.10000000149012,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "<  0,1g"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 9.2,
+          "off_value": 9.1999998092651,
+          "exact_value_match": false,
+          "within_tolerance": true,
+          "status": "value_mismatch",
+          "model_span": "9,2g"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 9.0,
+          "off_value": 9.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "9,0  g"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.5,
+          "off_value": 0.5,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "<0,5g"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "prediction": 165.0,
+          "off_value": 183.399996757507,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "165  kJ"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "prediction": 39.0,
+          "off_value": 39.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "(39  kcal)"
+        }
+      ]
+    },
+    {
+      "barcode": "3661945710026",
+      "from_cache": true,
+      "reference_source": "Open Food Facts product API",
+      "reference_is_visual_gold": false,
+      "product_name": "Gingembre confit",
+      "api_reference_fields_available": 10,
+      "model_fields_with_compatible_api_reference": 7,
+      "exact_value_count": 6,
+      "exact_value_accuracy": 0.8571428571428571,
+      "field_tuple_precision": 0.8571428571428571,
+      "field_tuple_recall": 0.6,
+      "field_tuple_f1": 0.7058823529411764,
+      "field_tuple_metric_note": "Exact nutrient+basis+unit+value tuple against currently available Open Food Facts product nutriments; this API metadata is not image-verified truth.",
+      "comparisons": [
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.0,
+          "off_value": 0.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0g"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.0,
+          "off_value": 0.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0g"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 86.0,
+          "off_value": 86.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "86g"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 85.0,
+          "off_value": 85.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "85g"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.2,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": 0.05,
+          "off_value": 0.05,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "0.05g"
+        },
+        {
+          "nutrient": "sodium",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 0.02,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "added_sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "prediction": null,
+          "off_value": 45.0,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "reference_value_without_model_field"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "prediction": 1491.0,
+          "off_value": 1465.4,
+          "exact_value_match": false,
+          "within_tolerance": false,
+          "status": "value_mismatch",
+          "model_span": "1491"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "prediction": 351.0,
+          "off_value": 351.0,
+          "exact_value_match": true,
+          "within_tolerance": true,
+          "status": "exact_value_match",
+          "model_span": "kJ/351  kcal"
+        }
+      ]
+    }
+  ],
+  "manual_reference_review": {
+    "generated_at_utc": "2026-10-29T13:56:58.799465+00:00",
+    "model_id": "openfoodfacts/nutrition-extractor",
+    "model_revision": "4c28d479f332339ffc367d9aae66036a4583127c",
+    "inference_schema_version": "5-adaptive-sliding-structured",
+    "reference_product_id": "241013128",
+    "reference_images": 1,
+    "reference_source": "existing manually reviewed gold files from part2_ocr_validation; not new independent annotation or a population benchmark",
+    "source_hashes": {
+      "data/evaluation/gold_records.jsonl": "d09a637311009a1aab94afaa476047d7045bd73decd8c996bce9f2e0c813ab77",
+      "data/evaluation/gold_ocr.txt": "8f4e384918f83e6beaced6503c299b49ebf3d38edcd5db5f1822859558e79c14",
+      "data/manual_samples/241013128_nutrition.jpg": "0ad20aaa9e017e7f9640c5f9eaa99d6537bd78dcb191f4aa7ff7dedf87110fe7"
+    },
+    "ocr_error": null,
+    "ocr_cache_hit": false,
+    "reference_text": "Valeurs nutritionnelles moyennes pour 100 g : Energie 992 kJ (237 kcal) soit 12% des AR(1) - Matières grasses 9,5 g, dont acides gras saturés 4,2 g - Glucides 32 g, dont sucres 21,7 g - Protéines 4,6 g - Sel 0,36 g.\nValeurs nutritionnelles moyennes pour une portion de 90 g : Energie 893 kJ (213 kcal) soit 11% des AR(1) - Matières grasses 8,6 g, dont acides gras saturés 3,8 g - Glucides 28,8 g, dont sucres 19,5 g - Protéines 4,1 g - Sel 0,32 g.\n(1) Apports de Référence pour un adulte-type (8400 kJ/2000 kcal). Ce produit contient 2 portions.",
+    "status": "completed_single_manual_reference",
+    "ocr_text": "Valeurs nutritionnelles moyennes pour 100 9: Energie 992k/ (237 kcal) soit 12% des ARI _ Matières grasses 9,59, dont acides gras saturés 4,2 9 - Glucides 32 9, dont sucres 21,7g - Proteines 4,69 -Sel 0,36g Valeurs nutritionnelles moyennes pour une portion de 90g Energie 893 kJ (213 kcal) soit 11% des AR(\" Matières grasses 8,6 9, dont acides gras saturés 3,8 9 Glucides 28,89,dont suces 19,59-Proteines 4,19-Sel0,32g @Apports de Référence pour un adulte-type (8400 kJ/2000 kcal) . (e produit contient 2 portions .",
+    "ocr_metrics": {
+      "status": "measured_on_manual_references",
+      "support": 1,
+      "cer": 0.10091743119266056,
+      "wer": 0.46153846153846156
+    },
+    "ocr_difference_examples": [
+      {
+        "operation": "replace",
+        "reference": "g",
+        "ocr": "9",
+        "reference_start": 5,
+        "ocr_start": 5,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "992 kj",
+        "ocr": "992k /",
+        "reference_start": 8,
+        "ocr_start": 8,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "ar ( 1 ) -",
+        "ocr": "ari _",
+        "reference_start": 18,
+        "ocr_start": 18,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "5 g",
+        "ocr": "59",
+        "reference_start": 27,
+        "ocr_start": 24,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "g",
+        "ocr": "9",
+        "reference_start": 37,
+        "ocr_start": 33,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "g",
+        "ocr": "9",
+        "reference_start": 41,
+        "ocr_start": 37,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "7 g",
+        "ocr": "7g",
+        "reference_start": 47,
+        "ocr_start": 43,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "protéines",
+        "ocr": "proteines",
+        "reference_start": 50,
+        "ocr_start": 45,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "6 g",
+        "ocr": "69",
+        "reference_start": 53,
+        "ocr_start": 48,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "36 g .",
+        "ocr": "36g",
+        "reference_start": 59,
+        "ocr_start": 53,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "90 g :",
+        "ocr": "90g",
+        "reference_start": 69,
+        "ocr_start": 61,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "1 ) -",
+        "ocr": "\"",
+        "reference_start": 85,
+        "ocr_start": 75,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "g",
+        "ocr": "9",
+        "reference_start": 93,
+        "ocr_start": 81,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "g -",
+        "ocr": "9",
+        "reference_start": 102,
+        "ocr_start": 90,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "8 g",
+        "ocr": "89",
+        "reference_start": 107,
+        "ocr_start": 94,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "sucres",
+        "ocr": "suces",
+        "reference_start": 111,
+        "ocr_start": 97,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "5 g",
+        "ocr": "59",
+        "reference_start": 114,
+        "ocr_start": 100,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "protéines",
+        "ocr": "proteines",
+        "reference_start": 117,
+        "ocr_start": 102,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "1 g",
+        "ocr": "19",
+        "reference_start": 120,
+        "ocr_start": 105,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "sel 0",
+        "ocr": "sel0",
+        "reference_start": 123,
+        "ocr_start": 107,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "32 g . ( 1 )",
+        "ocr": "32g @",
+        "reference_start": 126,
+        "ocr_start": 109,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      },
+      {
+        "operation": "replace",
+        "reference": "ce",
+        "ocr": "( e",
+        "reference_start": 148,
+        "ocr_start": 127,
+        "note": "Text/order difference against manual reference; not a verified spatial word alignment."
+      }
+    ],
+    "ocr_seconds_recorded": 1.718264900000122,
+    "model_cache_hit": false,
+    "onnx_seconds_recorded": 2.748089699999582,
+    "timing_note": "Recorded stage times may originate from prediction/OCR caches; cache flags indicate reuse. No new latency is claimed for cache hits.",
+    "field_metrics": {
+      "reference_source": "existing manually reviewed gold files from part2_ocr_validation; not new independent annotation or a population benchmark",
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 11,
+      "predicted_fields": 5,
+      "gold_fields": 16,
+      "field_precision": 1.0,
+      "field_recall": 0.3125,
+      "field_f1": 0.47619047619047616,
+      "exact_value_matches": 5,
+      "comparable_value_fields": 5,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 32.0,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 28.8,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 237.0,
+          "predicted_value": 237.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 992.0,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kcal",
+          "reference_value": 213.0,
+          "predicted_value": 213.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kj",
+          "reference_value": 893.0,
+          "predicted_value": 893.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 9.5,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 8.6,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 4.6,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 4.1,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.36,
+          "predicted_value": 0.36,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.32,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 4.2,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 3.8,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 21.7,
+          "predicted_value": 21.7,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 19.5,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        }
+      ]
+    },
+    "parse_failure_count": 14,
+    "structured_output": {
+      "schema_version": "5-adaptive-sliding-structured",
+      "model_id": "openfoodfacts/nutrition-extractor",
+      "model_revision": "4c28d479f332339ffc367d9aae66036a4583127c",
+      "model_license": "cc-by-nc-sa-4.0",
+      "barcode": "None",
+      "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\manual_samples\\241013128_nutrition.jpg",
+      "raw_predictions": {
+        "tokens": [
+          "Valeurs",
+          "nutritionnelles",
+          "moyennes",
+          "pour",
+          "100",
+          "9:",
+          "Energie",
+          "992k/",
+          "(237",
+          "kcal)",
+          "soit",
+          "12%",
+          "des",
+          "ARI",
+          "_",
+          "Matières",
+          "grasses",
+          "9,59,",
+          "dont",
+          "acides",
+          "gras",
+          "saturés",
+          "4,2",
+          "9",
+          "-",
+          "Glucides",
+          "32",
+          "9,",
+          "dont",
+          "sucres",
+          "21,7g",
+          "-",
+          "Proteines",
+          "4,69",
+          "-Sel",
+          "0,36g",
+          "Valeurs",
+          "nutritionnelles",
+          "moyennes",
+          "pour",
+          "une",
+          "portion",
+          "de",
+          "90g",
+          "Energie",
+          "893",
+          "kJ",
+          "(213",
+          "kcal)",
+          "soit",
+          "11%",
+          "des",
+          "AR(\"",
+          "Matières",
+          "grasses",
+          "8,6",
+          "9,",
+          "dont",
+          "acides",
+          "gras",
+          "saturés",
+          "3,8",
+          "9",
+          "Glucides",
+          "28,89,dont",
+          "suces",
+          "19,59-Proteines",
+          "4,19-Sel0,32g",
+          "@Apports",
+          "de",
+          "Référence",
+          "pour",
+          "un",
+          "adulte-type",
+          "(8400",
+          "kJ/2000",
+          "kcal)",
+          ".",
+          "(e",
+          "produit",
+          "contient",
+          "2",
+          "portions",
+          "."
+        ],
+        "bio_labels": [
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "B-ENERGY_KJ_100G",
+          "B-ENERGY_KJ_100G",
+          "B-ENERGY_KCAL_100G",
+          "B-ENERGY_KCAL_100G",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "B-FAT_100G",
+          "O",
+          "O",
+          "O",
+          "O",
+          "B-SATURATED_FAT_100G",
+          "I-SATURATED_FAT_100G",
+          "O",
+          "O",
+          "B-CARBOHYDRATES_100G",
+          "I-CARBOHYDRATES_100G",
+          "O",
+          "B-SUGARS_100G",
+          "B-SUGARS_100G",
+          "O",
+          "B-PROTEINS_100G",
+          "B-PROTEINS_100G",
+          "B-SALT_100G",
+          "B-SALT_100G",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "B-ENERGY_KJ_SERVING",
+          "I-ENERGY_KJ_SERVING",
+          "B-ENERGY_KCAL_SERVING",
+          "B-ENERGY_KCAL_SERVING",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "B-CARBOHYDRATES_SERVING",
+          "O",
+          "B-SUGARS_SERVING",
+          "B-PROTEINS_SERVING",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O",
+          "O"
+        ]
+      },
+      "entities": [
+        {
+          "label": "ENERGY_KJ_100G",
+          "start": 6,
+          "end": 7,
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "text": "Energie",
+          "raw_text": "Energie",
+          "raw_tokens": [
+            "Energie"
+          ],
+          "mean_token_confidence": 0.995237751953969
+        },
+        {
+          "label": "ENERGY_KJ_100G",
+          "start": 7,
+          "end": 8,
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "text": "992k/",
+          "raw_text": "992k/",
+          "raw_tokens": [
+            "992k/"
+          ],
+          "mean_token_confidence": 0.9971218084062602
+        },
+        {
+          "label": "ENERGY_KCAL_100G",
+          "start": 8,
+          "end": 9,
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "text": "(237",
+          "raw_text": "(237",
+          "raw_tokens": [
+            "(237"
+          ],
+          "mean_token_confidence": 0.9989583362300295
+        },
+        {
+          "label": "ENERGY_KCAL_100G",
+          "start": 9,
+          "end": 10,
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "text": "kcal)",
+          "raw_text": "kcal)",
+          "raw_tokens": [
+            "kcal)"
+          ],
+          "mean_token_confidence": 0.5695298254830875
+        },
+        {
+          "label": "FAT_100G",
+          "start": 17,
+          "end": 18,
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "text": "9,59,",
+          "raw_text": "9,59,",
+          "raw_tokens": [
+            "9,59,"
+          ],
+          "mean_token_confidence": 0.9979868770488033
+        },
+        {
+          "label": "SATURATED_FAT_100G",
+          "start": 22,
+          "end": 24,
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "text": "4,2 9",
+          "raw_text": "4,2 9",
+          "raw_tokens": [
+            "4,2",
+            "9"
+          ],
+          "mean_token_confidence": 0.9056574658477485
+        },
+        {
+          "label": "CARBOHYDRATES_100G",
+          "start": 26,
+          "end": 28,
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "text": "32 9,",
+          "raw_text": "32 9,",
+          "raw_tokens": [
+            "32",
+            "9,"
+          ],
+          "mean_token_confidence": 0.9795487918155894
+        },
+        {
+          "label": "SUGARS_100G",
+          "start": 29,
+          "end": 30,
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "text": "sucres",
+          "raw_text": "sucres",
+          "raw_tokens": [
+            "sucres"
+          ],
+          "mean_token_confidence": 0.9650207465270592
+        },
+        {
+          "label": "SUGARS_100G",
+          "start": 30,
+          "end": 31,
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "text": "21,7g",
+          "raw_text": "21,7g",
+          "raw_tokens": [
+            "21,7g"
+          ],
+          "mean_token_confidence": 0.9984592018480337
+        },
+        {
+          "label": "PROTEINS_100G",
+          "start": 32,
+          "end": 33,
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "text": "Proteines",
+          "raw_text": "Proteines",
+          "raw_tokens": [
+            "Proteines"
+          ],
+          "mean_token_confidence": 0.9313058227819955
+        },
+        {
+          "label": "PROTEINS_100G",
+          "start": 33,
+          "end": 34,
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "text": "4,69",
+          "raw_text": "4,69",
+          "raw_tokens": [
+            "4,69"
+          ],
+          "mean_token_confidence": 0.9991478894423902
+        },
+        {
+          "label": "SALT_100G",
+          "start": 34,
+          "end": 35,
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "text": "-Sel",
+          "raw_text": "-Sel",
+          "raw_tokens": [
+            "-Sel"
+          ],
+          "mean_token_confidence": 0.8850974029551602
+        },
+        {
+          "label": "SALT_100G",
+          "start": 35,
+          "end": 36,
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "text": "0,36g",
+          "raw_text": "0,36g",
+          "raw_tokens": [
+            "0,36g"
+          ],
+          "mean_token_confidence": 0.99826603538829
+        },
+        {
+          "label": "ENERGY_KJ_SERVING",
+          "start": 45,
+          "end": 47,
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "text": "893 kJ",
+          "raw_text": "893 kJ",
+          "raw_tokens": [
+            "893",
+            "kJ"
+          ],
+          "mean_token_confidence": 0.7896031514793662
+        },
+        {
+          "label": "ENERGY_KCAL_SERVING",
+          "start": 47,
+          "end": 48,
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "text": "(213",
+          "raw_text": "(213",
+          "raw_tokens": [
+            "(213"
+          ],
+          "mean_token_confidence": 0.9967395168691918
+        },
+        {
+          "label": "ENERGY_KCAL_SERVING",
+          "start": 48,
+          "end": 49,
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "text": "kcal)",
+          "raw_text": "kcal)",
+          "raw_tokens": [
+            "kcal)"
+          ],
+          "mean_token_confidence": 0.969350431491371
+        },
+        {
+          "label": "CARBOHYDRATES_SERVING",
+          "start": 64,
+          "end": 65,
+          "nutrient": "carbohydrates",
+          "basis": "per_serving",
+          "text": "28,89,dont",
+          "raw_text": "28,89,dont",
+          "raw_tokens": [
+            "28,89,dont"
+          ],
+          "mean_token_confidence": 0.9696164661688997
+        },
+        {
+          "label": "SUGARS_SERVING",
+          "start": 66,
+          "end": 67,
+          "nutrient": "sugars",
+          "basis": "per_serving",
+          "text": "19,59-Proteines",
+          "raw_text": "19,59-Proteines",
+          "raw_tokens": [
+            "19,59-Proteines"
+          ],
+          "mean_token_confidence": 0.9876979401195161
+        },
+        {
+          "label": "PROTEINS_SERVING",
+          "start": 67,
+          "end": 68,
+          "nutrient": "proteins",
+          "basis": "per_serving",
+          "text": "4,19-Sel0,32g",
+          "raw_text": "4,19-Sel0,32g",
+          "raw_tokens": [
+            "4,19-Sel0,32g"
+          ],
+          "mean_token_confidence": 0.8810074003772552
+        }
+      ],
+      "nutrients": {
+        "per_100g": {
+          "energy": [
+            {
+              "label": "ENERGY_KCAL_100G",
+              "start": 8,
+              "end": 9,
+              "nutrient": "energy",
+              "basis": "per_100g",
+              "text": "(237",
+              "raw_text": "(237",
+              "raw_tokens": [
+                "(237"
+              ],
+              "mean_token_confidence": 0.9989583362300295,
+              "parse_status": "parsed",
+              "uncertainty_reasons": [],
+              "value": 237.0,
+              "unit": "kcal",
+              "qualifier": null,
+              "parsed_text": "237",
+              "normalized_value": 237.0,
+              "normalized_unit": "kcal"
+            }
+          ],
+          "sugars": [
+            {
+              "label": "SUGARS_100G",
+              "start": 30,
+              "end": 31,
+              "nutrient": "sugars",
+              "basis": "per_100g",
+              "text": "21,7g",
+              "raw_text": "21,7g",
+              "raw_tokens": [
+                "21,7g"
+              ],
+              "mean_token_confidence": 0.9984592018480337,
+              "parse_status": "parsed",
+              "uncertainty_reasons": [],
+              "value": 21.7,
+              "unit": "g",
+              "qualifier": null,
+              "parsed_text": "21,7g",
+              "normalized_value": 21.7,
+              "normalized_unit": "g"
+            }
+          ],
+          "salt": [
+            {
+              "label": "SALT_100G",
+              "start": 35,
+              "end": 36,
+              "nutrient": "salt",
+              "basis": "per_100g",
+              "text": "0,36g",
+              "raw_text": "0,36g",
+              "raw_tokens": [
+                "0,36g"
+              ],
+              "mean_token_confidence": 0.99826603538829,
+              "parse_status": "parsed",
+              "uncertainty_reasons": [],
+              "value": 0.36,
+              "unit": "g",
+              "qualifier": null,
+              "parsed_text": "0,36g",
+              "normalized_value": 0.36,
+              "normalized_unit": "g"
+            }
+          ]
+        },
+        "per_serving": {
+          "energy": [
+            {
+              "label": "ENERGY_KJ_SERVING",
+              "start": 45,
+              "end": 47,
+              "nutrient": "energy",
+              "basis": "per_serving",
+              "text": "893 kJ",
+              "raw_text": "893 kJ",
+              "raw_tokens": [
+                "893",
+                "kJ"
+              ],
+              "mean_token_confidence": 0.7896031514793662,
+              "parse_status": "parsed",
+              "uncertainty_reasons": [],
+              "value": 893.0,
+              "unit": "kj",
+              "qualifier": null,
+              "parsed_text": "893 kJ",
+              "normalized_value": 213.4321223709369,
+              "normalized_unit": "kcal"
+            },
+            {
+              "label": "ENERGY_KCAL_SERVING",
+              "start": 47,
+              "end": 48,
+              "nutrient": "energy",
+              "basis": "per_serving",
+              "text": "(213",
+              "raw_text": "(213",
+              "raw_tokens": [
+                "(213"
+              ],
+              "mean_token_confidence": 0.9967395168691918,
+              "parse_status": "parsed",
+              "uncertainty_reasons": [],
+              "value": 213.0,
+              "unit": "kcal",
+              "qualifier": null,
+              "parsed_text": "213",
+              "normalized_value": 213.0,
+              "normalized_unit": "kcal"
+            }
+          ]
+        }
+      },
+      "parsed_fields": [
+        {
+          "label": "ENERGY_KCAL_100G",
+          "start": 8,
+          "end": 9,
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "text": "(237",
+          "raw_text": "(237",
+          "raw_tokens": [
+            "(237"
+          ],
+          "mean_token_confidence": 0.9989583362300295,
+          "parse_status": "parsed",
+          "uncertainty_reasons": [],
+          "value": 237.0,
+          "unit": "kcal",
+          "qualifier": null,
+          "parsed_text": "237",
+          "normalized_value": 237.0,
+          "normalized_unit": "kcal"
+        },
+        {
+          "label": "SUGARS_100G",
+          "start": 30,
+          "end": 31,
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "text": "21,7g",
+          "raw_text": "21,7g",
+          "raw_tokens": [
+            "21,7g"
+          ],
+          "mean_token_confidence": 0.9984592018480337,
+          "parse_status": "parsed",
+          "uncertainty_reasons": [],
+          "value": 21.7,
+          "unit": "g",
+          "qualifier": null,
+          "parsed_text": "21,7g",
+          "normalized_value": 21.7,
+          "normalized_unit": "g"
+        },
+        {
+          "label": "SALT_100G",
+          "start": 35,
+          "end": 36,
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "text": "0,36g",
+          "raw_text": "0,36g",
+          "raw_tokens": [
+            "0,36g"
+          ],
+          "mean_token_confidence": 0.99826603538829,
+          "parse_status": "parsed",
+          "uncertainty_reasons": [],
+          "value": 0.36,
+          "unit": "g",
+          "qualifier": null,
+          "parsed_text": "0,36g",
+          "normalized_value": 0.36,
+          "normalized_unit": "g"
+        },
+        {
+          "label": "ENERGY_KJ_SERVING",
+          "start": 45,
+          "end": 47,
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "text": "893 kJ",
+          "raw_text": "893 kJ",
+          "raw_tokens": [
+            "893",
+            "kJ"
+          ],
+          "mean_token_confidence": 0.7896031514793662,
+          "parse_status": "parsed",
+          "uncertainty_reasons": [],
+          "value": 893.0,
+          "unit": "kj",
+          "qualifier": null,
+          "parsed_text": "893 kJ",
+          "normalized_value": 213.4321223709369,
+          "normalized_unit": "kcal"
+        },
+        {
+          "label": "ENERGY_KCAL_SERVING",
+          "start": 47,
+          "end": 48,
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "text": "(213",
+          "raw_text": "(213",
+          "raw_tokens": [
+            "(213"
+          ],
+          "mean_token_confidence": 0.9967395168691918,
+          "parse_status": "parsed",
+          "uncertainty_reasons": [],
+          "value": 213.0,
+          "unit": "kcal",
+          "qualifier": null,
+          "parsed_text": "213",
+          "normalized_value": 213.0,
+          "normalized_unit": "kcal"
+        }
+      ],
+      "uncertain_fields": [
+        {
+          "label": "ENERGY_KJ_100G",
+          "start": 6,
+          "end": 7,
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "text": "Energie",
+          "raw_text": "Energie",
+          "raw_tokens": [
+            "Energie"
+          ],
+          "mean_token_confidence": 0.995237751953969,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "no_numeric_value"
+          ]
+        },
+        {
+          "label": "ENERGY_KJ_100G",
+          "start": 7,
+          "end": 8,
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "text": "992k/",
+          "raw_text": "992k/",
+          "raw_tokens": [
+            "992k/"
+          ],
+          "mean_token_confidence": 0.9971218084062602,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "unparsed_letters_near_numeric_value"
+          ],
+          "value": 992.0,
+          "unit": "kj",
+          "qualifier": null,
+          "parsed_text": "992",
+          "normalized_value": 237.09369024856596,
+          "normalized_unit": "kcal"
+        },
+        {
+          "label": "ENERGY_KCAL_100G",
+          "start": 9,
+          "end": 10,
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "text": "kcal)",
+          "raw_text": "kcal)",
+          "raw_tokens": [
+            "kcal)"
+          ],
+          "mean_token_confidence": 0.5695298254830875,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "no_numeric_value"
+          ]
+        },
+        {
+          "label": "FAT_100G",
+          "start": 17,
+          "end": 18,
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "text": "9,59,",
+          "raw_text": "9,59,",
+          "raw_tokens": [
+            "9,59,"
+          ],
+          "mean_token_confidence": 0.9979868770488033,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "no_numeric_value"
+          ]
+        },
+        {
+          "label": "SATURATED_FAT_100G",
+          "start": 22,
+          "end": 24,
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "text": "4,2 9",
+          "raw_text": "4,2 9",
+          "raw_tokens": [
+            "4,2",
+            "9"
+          ],
+          "mean_token_confidence": 0.9056574658477485,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "unit_missing_or_not_read"
+          ],
+          "value": 4.29,
+          "unit": null,
+          "qualifier": null,
+          "parsed_text": "4,2 9"
+        },
+        {
+          "label": "CARBOHYDRATES_100G",
+          "start": 26,
+          "end": 28,
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "text": "32 9,",
+          "raw_text": "32 9,",
+          "raw_tokens": [
+            "32",
+            "9,"
+          ],
+          "mean_token_confidence": 0.9795487918155894,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "unit_missing_or_not_read"
+          ],
+          "value": 329.0,
+          "unit": null,
+          "qualifier": null,
+          "parsed_text": "32 9,"
+        },
+        {
+          "label": "SUGARS_100G",
+          "start": 29,
+          "end": 30,
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "text": "sucres",
+          "raw_text": "sucres",
+          "raw_tokens": [
+            "sucres"
+          ],
+          "mean_token_confidence": 0.9650207465270592,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "no_numeric_value"
+          ]
+        },
+        {
+          "label": "PROTEINS_100G",
+          "start": 32,
+          "end": 33,
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "text": "Proteines",
+          "raw_text": "Proteines",
+          "raw_tokens": [
+            "Proteines"
+          ],
+          "mean_token_confidence": 0.9313058227819955,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "no_numeric_value"
+          ]
+        },
+        {
+          "label": "PROTEINS_100G",
+          "start": 33,
+          "end": 34,
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "text": "4,69",
+          "raw_text": "4,69",
+          "raw_tokens": [
+            "4,69"
+          ],
+          "mean_token_confidence": 0.9991478894423902,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "unit_missing_or_not_read"
+          ],
+          "value": 4.69,
+          "unit": null,
+          "qualifier": null,
+          "parsed_text": "4,69"
+        },
+        {
+          "label": "SALT_100G",
+          "start": 34,
+          "end": 35,
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "text": "-Sel",
+          "raw_text": "-Sel",
+          "raw_tokens": [
+            "-Sel"
+          ],
+          "mean_token_confidence": 0.8850974029551602,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "no_numeric_value"
+          ]
+        },
+        {
+          "label": "ENERGY_KCAL_SERVING",
+          "start": 48,
+          "end": 49,
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "text": "kcal)",
+          "raw_text": "kcal)",
+          "raw_tokens": [
+            "kcal)"
+          ],
+          "mean_token_confidence": 0.969350431491371,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "no_numeric_value"
+          ]
+        },
+        {
+          "label": "CARBOHYDRATES_SERVING",
+          "start": 64,
+          "end": 65,
+          "nutrient": "carbohydrates",
+          "basis": "per_serving",
+          "text": "28,89,dont",
+          "raw_text": "28,89,dont",
+          "raw_tokens": [
+            "28,89,dont"
+          ],
+          "mean_token_confidence": 0.9696164661688997,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "no_numeric_value"
+          ]
+        },
+        {
+          "label": "SUGARS_SERVING",
+          "start": 66,
+          "end": 67,
+          "nutrient": "sugars",
+          "basis": "per_serving",
+          "text": "19,59-Proteines",
+          "raw_text": "19,59-Proteines",
+          "raw_tokens": [
+            "19,59-Proteines"
+          ],
+          "mean_token_confidence": 0.9876979401195161,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "unit_missing_or_not_read",
+            "unparsed_letters_near_numeric_value"
+          ],
+          "value": 19.59,
+          "unit": null,
+          "qualifier": null,
+          "parsed_text": "19,59"
+        },
+        {
+          "label": "PROTEINS_SERVING",
+          "start": 67,
+          "end": 68,
+          "nutrient": "proteins",
+          "basis": "per_serving",
+          "text": "4,19-Sel0,32g",
+          "raw_text": "4,19-Sel0,32g",
+          "raw_tokens": [
+            "4,19-Sel0,32g"
+          ],
+          "mean_token_confidence": 0.8810074003772552,
+          "parse_status": "uncertain",
+          "uncertainty_reasons": [
+            "multiple_numeric_values_in_one_BIO_span"
+          ]
+        }
+      ],
+      "ocr_provenance": {
+        "engine": "EasyOCR CPU, quantize=False",
+        "box_granularity": "detection box shared by whitespace-split words; not measured word boxes",
+        "gold_available": false
+      }
+    },
+    "token_count": 84,
+    "covered_tokens": 84,
+    "bio_metrics": null,
+    "bio_metrics_note": "Manual reference is record-level; EasyOCR tokens have no gold BIO alignment.",
+    "rule_field_metrics_same_ocr": {
+      "reference_source": "existing manually reviewed gold files from part2_ocr_validation; not new independent annotation or a population benchmark",
+      "true_positive": 1,
+      "false_positive": 1,
+      "false_negative": 15,
+      "predicted_fields": 2,
+      "gold_fields": 16,
+      "field_precision": 0.5,
+      "field_recall": 0.0625,
+      "field_f1": 0.1111111111111111,
+      "exact_value_matches": 1,
+      "comparable_value_fields": 1,
+      "exact_value_accuracy": 1.0,
+      "exact_value_accuracy_note": "Exact value AND qualifier on matching nutrient/basis/compatible-unit keys; no tolerance; unmatched fields are disclosed separately.",
+      "comparisons": [
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 32.0,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "carbohydrates",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 28.8,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kcal",
+          "reference_value": 237.0,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_100g",
+          "unit": "kj",
+          "reference_value": 992.0,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kcal",
+          "reference_value": 213.0,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "energy",
+          "basis": "per_serving",
+          "unit": "kj",
+          "reference_value": 893.0,
+          "predicted_value": 893.0,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "exact_match"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 9.5,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 8.6,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 4.6,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "proteins",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 4.1,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 0.36,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "salt",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 0.32,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 4.2,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "saturated_fat",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 3.8,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_100g",
+          "unit": "g",
+          "reference_value": 21.7,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "per_serving",
+          "unit": "g",
+          "reference_value": 19.5,
+          "predicted_value": null,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "missing_prediction"
+        },
+        {
+          "nutrient": "sugars",
+          "basis": "unspecified",
+          "unit": "g",
+          "reference_value": null,
+          "predicted_value": 21.7,
+          "reference_qualifier": null,
+          "predicted_qualifier": null,
+          "status": "unexpected_prediction"
+        }
+      ]
+    }
+  }
+}

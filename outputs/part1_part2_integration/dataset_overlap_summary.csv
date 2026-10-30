@@ -1,0 +1,15 @@
+metric,value,scope
+status,measured_complete_part1_snapshot,complete Part1 EOF scan; both Part2 splits
+part1_product_rows,4881991,complete Part1 EOF scan; both Part2 splits
+part1_unique_barcodes,4881935,complete Part1 EOF scan; both Part2 splits
+part1_duplicate_rows,56,complete Part1 EOF scan; both Part2 splits
+part1_duplicate_barcode_groups,56,complete Part1 EOF scan; both Part2 splits
+part2_images,3083,complete Part1 EOF scan; both Part2 splits
+part2_unique_barcodes,3083,complete Part1 EOF scan; both Part2 splits
+part2_repeated_barcode_images,0,complete Part1 EOF scan; both Part2 splits
+overlapping_barcodes,3075,complete Part1 EOF scan; both Part2 splits
+overlap_percent_of_part2,99.74051248783653,complete Part1 EOF scan; both Part2 splits
+overlap_percent_of_part1,0.06298731957717585,complete Part1 EOF scan; both Part2 splits
+matched_images,3075,complete Part1 EOF scan; both Part2 splits
+unmatched_barcodes,8,complete Part1 EOF scan; both Part2 splits
+invalid_part2_barcode_images,0,complete Part1 EOF scan; both Part2 splits

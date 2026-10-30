@@ -1,0 +1,57 @@
+{
+  "barcode": "241013128",
+  "image_path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\manual_samples\\241013128_nutrition.jpg",
+  "nutrition_basis": "per_serving",
+  "nutrients": {
+    "unspecified": {
+      "sugars": [
+        {
+          "value": 21.7,
+          "unit": "g",
+          "basis": "unspecified",
+          "raw_text": "21,7g",
+          "ocr_confidence": 0.6396063083234779,
+          "normalized_value": 21.7,
+          "normalized_unit": "g"
+        }
+      ]
+    },
+    "per_serving": {
+      "energy_kj": [
+        {
+          "value": 893.0,
+          "unit": "kj",
+          "basis": "per_serving",
+          "raw_text": "893 kJ",
+          "ocr_confidence": 0.37937989078940126,
+          "normalized_value": 213.4321223709369,
+          "normalized_unit": "kcal"
+        }
+      ]
+    }
+  },
+  "unresolved_fields": [
+    {
+      "nutrient": "energy",
+      "reason": "energy number has no explicit kcal/kJ unit",
+      "raw_text": "992"
+    },
+    {
+      "nutrient": "fat",
+      "reason": "no numeric value on the same visual row",
+      "source_text": "Matières grasses 8,6 9, dont acides gras saturés 3,8 9"
+    },
+    {
+      "nutrient": "carbohydrates",
+      "reason": "no numeric value on the same visual row",
+      "source_text": "Glucides 28,89,dont suces 19,59-Proteines 4,19-Sel0,32g"
+    }
+  ],
+  "warnings": [
+    "Nutrition basis was not confidently identified; value retained as unspecified.",
+    "OCR confidence is not calibrated confidence in nutrient-value association."
+  ],
+  "ocr_error": null,
+  "processing_time_seconds": 1.7837325999280438,
+  "method": "easyocr+spatial-rules"
+}

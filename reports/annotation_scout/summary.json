@@ -1,0 +1,53 @@
+{
+  "input_rows": 50000,
+  "input_columns": 44,
+  "nutrition_image_url_candidates": 8803,
+  "ranked_candidates_with_any_target": 8527,
+  "target_fields_scored": [
+    "energy-kcal_100g",
+    "fat_100g",
+    "saturated-fat_100g",
+    "carbohydrates_100g",
+    "sugars_100g",
+    "fiber_100g",
+    "proteins_100g",
+    "salt_100g",
+    "sodium_100g"
+  ],
+  "candidate_count_by_target_support": {
+    "at_least_1_of_9_targets": 8527,
+    "at_least_3_of_9_targets": 8520,
+    "at_least_5_of_9_targets": 8484,
+    "at_least_7_of_9_targets": 8294,
+    "at_least_9_of_9_targets": 6550
+  },
+  "candidate_locale_hints": {
+    "en": 7426,
+    "fr": 907,
+    "es": 101,
+    "de": 24,
+    "it": 21,
+    "nl": 7,
+    "ar": 7,
+    "fi": 5,
+    "ro": 4,
+    "pt": 4,
+    "da": 4,
+    "la": 3,
+    "eu": 2,
+    "sv": 2,
+    "ru": 1,
+    "lt": 1,
+    "uk": 1,
+    "ca": 1,
+    "zh": 1,
+    "cs": 1,
+    "th": 1,
+    "sr": 1,
+    "no": 1,
+    "ja": 1
+  },
+  "record_level_alignment_verified_count": 1,
+  "token_level_annotations_complete_count": 0,
+  "warning": "Ranking uses metadata only and is not confidence. Only explicitly marked product IDs have separate manual record-level verification; all others require visual review."
+}

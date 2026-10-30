@@ -1,0 +1,1 @@
+[{"image_key": "test:32", "barcode": "7350039931893", "split": "test", "error": "InsufficientResourcesError: Only 0.71 GiB RAM is currently available; at least 2.5 GiB is required before loading the local 1.33 GiB ONNX checkpoint. No weights were loaded. Close memory-heavy apps and retry."}]

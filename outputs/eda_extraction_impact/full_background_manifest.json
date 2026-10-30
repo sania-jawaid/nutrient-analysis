@@ -1,0 +1,14 @@
+{
+  "version": "1.1",
+  "source": {
+    "path": "C:\\Users\\SaniaJawaid\\Documents\\projects\\practice\\study\\nutrition_extraction_solution\\data\\full_off\\en.openfoodfacts.org.products.csv.gz",
+    "bytes": 1524849117,
+    "mtime_ns": 1793340947863977100
+  },
+  "full_rows": 4881991,
+  "matched_products": 3075,
+  "broad_sample_rows": 50000,
+  "quantile_method": "seed42 bounded uniform reservoir, at most 20,000 finite observations per nutrient; full quantiles approximate, counts/histograms exact",
+  "duplicate_note": "Full distributions are product-row weighted (56 repeated barcode rows); matched subset is unique-product weighted.",
+  "generated_at_utc": "2026-10-30T10:10:33.138487+00:00"
+}
